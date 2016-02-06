@@ -1,0 +1,11 @@
+body {
+	background-color: red;
+}
+{
+	color: red;
+}
+@media (min-width: 600px) {
+	body {
+		background-color: blue;
+	}
+/* intentionally not closed */
