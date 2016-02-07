@@ -6,19 +6,14 @@ var gulp = require('gulp');
 
 var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');
-var critical = require('critical').stream;
 var eol = require('gulp-eol');
 var fileinclude = require('gulp-file-include');
+var htmlmin = require('gulp-htmlmin');
 var markdown = require('markdown');
 var rename = require('gulp-rename');
+var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-
-gulp.task('critical', function () {
-    return gulp.src('dist/*.html')
-        .pipe(critical({base: 'dist/', minify: true, inline: true, width: 3840, height: 2160, css: ['dist/css/main.css']}))
-        .pipe(gulp.dest('dist'));
-});
 
 gulp.task('html', function () {
 	return gulp.src(['app/index.html'])
@@ -49,9 +44,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('minifycss', function() {
-    gulp.src('dist/css/*.css')
+    gulp.src('dist/css/main.css')
         .pipe(cssmin({ compatibility: 'ie8'}))
         .pipe(gulp.dest('dist/css/'));
+});
+
+gulp.task('minifyhtml', function() {
+	gulp.src('dist/*.html')
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest('dist'))
 });
 
 gulp.task('fonts', function() {
@@ -92,6 +93,8 @@ gulp.task('js-jquery', function() {
 });
 
 gulp.task('scripts', ['js-base', 'js-ie', 'js-jquery', 'js-lib']);
-gulp.task('minify', ['minifycss']);
+gulp.task('minify', ['minifycss', 'minifyhtml']);
 
-gulp.task('default', ['css', 'images', 'fonts', 'html', 'sass', 'scripts', 'critical', 'minify']);
+gulp.task('default', function() {
+	runSequence(['css', 'images', 'fonts', 'html', 'sass'], ['scripts'], ['minify']);
+});
