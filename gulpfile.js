@@ -10,10 +10,16 @@ var eol = require('gulp-eol');
 var fileinclude = require('gulp-file-include');
 var htmlmin = require('gulp-htmlmin');
 var markdown = require('markdown');
+var mocha = require('gulp-mocha');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+
+gulp.task('mocha', function() {
+    gulp.src('./test/*.js')
+        .pipe(mocha({ reporter: 'list' }));
+});
 
 gulp.task('html', function () {
 	return gulp.src(['app/index.html'])
@@ -94,6 +100,8 @@ gulp.task('js-jquery', function() {
 
 gulp.task('scripts', ['js-base', 'js-ie', 'js-jquery', 'js-lib']);
 gulp.task('minify', ['minifycss', 'minifyhtml']);
+
+gulp.task('test', ['mocha']);
 
 gulp.task('default', function() {
 	runSequence(['css', 'images', 'fonts', 'html', 'sass'], ['scripts'], ['minify']);
