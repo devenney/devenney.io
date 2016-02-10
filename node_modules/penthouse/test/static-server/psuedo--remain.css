@@ -1,0 +1,10 @@
+::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+div::before, div::after {
+	content: 'some extra content here';
+}
+div ::-moz-focus-inner{
+	padding: 0;
+}

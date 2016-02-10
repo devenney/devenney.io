@@ -1,0 +1,11 @@
+.floatBox {
+float: left;
+width: 100px;
+height: 800px;
+background-color: red;
+}
+.clearSelf {
+clear:both;
+background-color: blue;
+height: 200px;
+}

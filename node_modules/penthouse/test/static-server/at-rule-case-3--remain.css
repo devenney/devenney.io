@@ -1,0 +1,26 @@
+@media (min-width:40em) {
+	body {
+		font-size: 120%;
+	}
+}
+@-moz-document url(http://www.w3.org/){
+	body {
+		background: yellow;
+	}
+}
+@document url(http://www.w3.org/){
+	body {
+		background: yellow;
+	}
+}
+@supports ( transform-origin: 5% 5% ){
+	body {
+		transform-origin: 5% 5%;
+	}
+}
+@viewport {
+   width: device-width;
+}
+@media screen and (max-width: 400px) {
+   @-ms-viewport { width: 320px; }
+}
