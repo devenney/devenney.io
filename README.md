@@ -42,7 +42,7 @@ Continuous Integration is provided by [CodeShip](https://codeship.com/). The tes
     #TEST
     gulp test
     
-    #DEPLOY
+    #DEPLOY (if master branch)
     gulp
     scp -rp dist $USER@$HOST:$SITEPATH
  
