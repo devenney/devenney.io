@@ -105,7 +105,7 @@ gulp.task('critical', function() {
 		minify: true,
 		base: 'dist/',
 		src: 'index.html',
-		dest: 'dist/index-critical.html',
+		dest: 'dist/index.html',
 		width: 1920,
 		height: 1080
 	});
