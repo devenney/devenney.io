@@ -1,2 +1,3 @@
 .well-known
-dist
+dist/
+node_modules/
