@@ -16,6 +16,11 @@ Work derived from Elevation by @Pixelarity. License: pixelarity.com/license
 * For production:
   * npm install --production
 
+To update:
+
+* Run `npm-check-updates -u`.
+* Execute all build steps and verify the output.
+
 ## Build
 
 The default Gulpfile task can be executed as follows:
