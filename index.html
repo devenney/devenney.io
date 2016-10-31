@@ -17,6 +17,29 @@
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
       <![endif]-->
+
+    <!-- jQuery 3.1.1 -->
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Nav Toggle -->
+    <script type="text/javascript">
+      window.onload = function() {
+        document.getElementById("nav-toggle").addEventListener ("click", toggleNav);
+        function toggleNav() {
+                var nav = document.getElementById("nav-menu");
+                var className = nav.getAttribute("class");
+                if(className == "nav-right nav-menu") {
+                    nav.className = "nav-right nav-menu is-active";
+                } else {
+                    nav.className = "nav-right nav-menu";
+                }
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -24,7 +47,7 @@
 
       <nav class="nav">
         <div class="nav-left">
-          <a class="nav-item is-brand" href="#">
+          <a class="nav-item is-brand" href="/">
             <b>Devenney</b>
           </a>
         </div>
@@ -42,25 +65,25 @@
           </a>
         </div>
 
-        <span class="nav-toggle">
+        <span id="nav-toggle" class="nav-toggle">
           <span></span>
           <span></span>
-         <span></span>
+          <span></span>
         </span>
 
-        <div class="nav-right nav-menu">
+        <div id="nav-menu" class="nav-right nav-menu">
           <a class="nav-item" href="#">
             Home
           </a>
-          <a class="nav-item" href="#">
+          <!--a class="nav-item" href="#">
             Blog
-          </a>
+          </a-->
         </div>
       </nav>
 
     </div>
 
-    <section class="hero is-dark">
+    <section class="hero is-bold is-dark is-mobile">
       <div class="hero-body">
         <div class="container has-text-centered">
           <center>
@@ -82,11 +105,70 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div calss="container">
+    <br /> 
+    <div class="container is-fluid">
+      <nav class="columns">
+        <div class="column has-text-centered">
+          <span class="icon is-large">
+            <i class="fa fa-mobile"></i>
+          </span>
+          <p class="title is-4">
+            Placeholder
+          </p>
+          <p class="subtitle is-6">
+            Placeholder
+          </p>
+        </div>
+
+        <div class="column has-text-centered">
+          <span class="icon is-large">
+            <i class="fa fa-mobile"></i>
+          </span>
+          <p class="title is-4">
+            Placeholder
+          </p>
+          <p class="subtitle is-6">
+            Placeholder
+          </p>
+        </div>
+
+        <div class="column has-text-centered">
+          <span class="icon is-large">
+            <i class="fa fa-mobile"></i>
+          </span>
+          <p class="title is-4">
+            Placeholder
+          </p>
+          <p class="subtitle is-6">
+            Placeholder
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <br /><br />
+
+    <section class="hero is-dark">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-3">
+            Placeholder.
+          </h1>
+          <h2 class="subtitle is-5">
+            Placeholder.
+          </h2>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer is-paddingless">
+      <hr />
+
+      <div class="container is-fluid">
         <div class="content has-text-centered">
           <p>
-            © <strong>Brendan Devenney</strong> 2016. All rights reserved.
+            © <a href="https://devenney.io/"><strong>Brendan Devenney</strong></a> 2016. All rights reserved.
           </p>
         </div>
       </div>
