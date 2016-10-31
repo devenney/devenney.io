@@ -1,0 +1,159 @@
+<html>
+  <header>
+    {{> templates/header }}
+    <title>Home | Brendan Devenney</title>
+  </header>
+
+  <body>
+    {{> templates/navbar }}
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Brendan Devenney
+          </h1>
+          <h2 class="subtitle">
+            Software Development, Operations & Reliability Engineering
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section id="skillset" class="hero is-black">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Skillset</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="tile is-ancestor">
+          <!-- Software Engineering -->
+          <div class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child notification is-dark">
+              <h1 class="title">Software Engineering</h1>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h1 class="title">Go</h1>
+              <h2 class="subtitle">Three years of industry experience delivering scalable, reliable and secure web-facing services.</h2>
+              <a href="#approov"><span class="tag is-dark is-rounded">Approov</span></a>            </div>
+            <div class="tile is-child notification is-light box">
+              <h1 class="title">Python</h1>
+              <h2 class="subtitle">Four years of industry experience delivering everything from web services to backup scripts.</h2>
+              <a href="#approov"><span class="tag is-dark is-rounded">Approov</span></a>
+              <a href="#devenneybot"><span class="tag is-dark is-rounded">Devenneybot</span></a>
+              <a href="#reverie"><span class="tag is-dark is-rounded">Reverie</span></a>
+            </div>
+          </div>
+
+          <!-- Site Reliability Engineering -->
+          <div class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child notification is-dark">
+              <h1 class="title">Reliability Engineering</h1>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h1 class="title">Monitoring (2+ Years)</h1>
+              <h2 class="subtitle">Developed, deployed and monitored code handling in excess of 250M requests per month.</h2>
+              <a href="#approov"><span class="tag is-dark is-rounded">Approov</span></a>
+              <a href="#reverie"><span class="tag is-dark is-rounded">Reverie</span></a>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h1 class="title">Cloud Architecture</h1>
+              <h2 class="subtitle">Cloud application design, management and <a href="#monitoring">monitoring</a> of a number of customer-facing services.</h2>
+              <a href="#approov"><span class="tag is-dark is-rounded">Approov</span></a>
+            </div>
+          </div>
+
+          <!-- Operations -->
+          <div class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child notification is-dark">
+              <h1 class="title">Operations</h1>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h1 class="title">Deployment</h1>
+              <h2 class="subtitle">Well versed in deploying complex systems to AWS (CloudFormation, Terraform) and GCP (Kubernetes).</h2>
+              <a href="#approov"><span class="tag is-dark is-rounded">Approov</span></a>
+              <a href="#reverie"><span class="tag is-dark is-rounded">Reverie</span></a>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h1 class="title">Integration</h1>
+              <h2 class="subtitle">Jenkins and Travis are my stomping grounds. Check out the <a href="#reverie">Reverie</a> PRs for a sneak peek of the standards I set myself.</h2>
+              <a href="#approov"><span class="tag is-dark is-rounded">Approov</span></a>
+              <a href="#reverie"><span class="tag is-dark is-rounded">Reverie</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="track-record" class="hero is-black">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Track Record</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="tile is-ancestor">
+
+          <!-- Approov -->
+          <div id="approov" class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child notification is-dark">
+              <h1 class="title">
+                Approov
+                <span style="float: right;">
+                  <a href="https://approov.io/">
+                    <span class="icon"><i class="fas fa-link"></i></span></a>&nbsp
+                </span>
+              </h1>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h2 class="subtitle">Worked as a core member of the <a href="https://approov.io/">Approov</a> development team, delivering highly scalable, reliable and secure code.</h2>
+            </div>
+          </div>
+
+          <!-- Devenneybot -->
+          <div id="devenneybot" class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child notification is-dark">
+              <h1 class="title">
+                Devenneybot&nbsp
+                <span style="float: right;">
+                  <a href="https://telegram.me/devenneybot">
+                    <span class="icon"><i class="fas fa-link"></i></span></a>&nbsp
+                  <a href="https://github.com/devenney/devenneybot/">
+                    <span class="icon"><i class="fab fa-github"></i></span></a>&nbsp
+                <span>
+              </h1>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h2 class="subtitle">A polyhedral dice rolling Telegram bot. Supports both inline and query commands.</h2>
+            </div>
+          </div>
+
+          <!-- Reverie -->
+          <div id="reverie" class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child notification is-dark">
+              <h1 class="title">
+                Reverie&nbsp
+                <span style="float: right;">
+                  <a href="https://reverie.devenney.io/">
+                    <span class="icon"><i class="fas fa-link"></i></span></a>&nbsp
+                  <a href="https://github.com/devenney/reverie/">
+                    <span class="icon"><i class="fab fa-github"></i></span></a>&nbsp
+                <span>
+              </h1>
+            </div>
+            <div class="tile is-child notification is-light box">
+              <h2 class="subtitle">A campaign tracker for tabletop RPGs.  Written in Django with &hearts;. Hit the GitHub icon to check out the source.</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
