@@ -3,9 +3,9 @@ node_js:
   - "node"
 cache: yarn
 install:
-  - "yarn install"
+  - "npm i -D"
 script:
-  - "yarn build"
+  - "npx webpack"
 deploy:
   provider: s3
   bucket: "devenney.io"

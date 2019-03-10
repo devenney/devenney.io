@@ -1,64 +1,58 @@
-const path = require('path')
+const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: "./src/index.js",
   output: {
-    path: path.join(__dirname, 'dist/'),
-    publicPath: '',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].js"
   },
   module: {
-    loaders: [
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-							outputPath: 'images/',
-						}
-          }
-        ]
-      },
+    rules: [
       {
         test: /\.hbs$/,
-        loader: "handlebars-loader"
-      },
-      {
-        test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/',    // where the fonts will go
-            //            publicPath: '../'       // override the default path
-          }
-        }]
+        loader: "handlebars-loader",
+        options: {
+          helperDirs: path.resolve(__dirname, "./src/js/handlebars-helpers")
+        }
       },
       {
         test: /\.scss$/,
         use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS
+          "style-loader",
+          "css-loader",
+          "sass-loader"
         ]
-      }
-    ]
+      },
+      {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/',
+          }
+        }
+      ]
+    }]
   },
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: 'src/assets/image',
+        from: 'src/images',
         to: 'images',
       }
     ]),
     new HtmlWebpackPlugin({
       hash: true,
-      template: '!!handlebars-loader!src/templates/index.hbs'
+      template: '!!handlebars-loader?helperDirs=' + path.resolve(__dirname, 'src/js/handlebars-helpers') + '!src/templates/index.hbs'
     })
-  ]
-}
+  ],
+  resolve: {
+    alias: {
+      handlebars: 'handlebars/dist/handlebars.min.js'
+    }
+  }
+};
