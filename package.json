@@ -1,28 +1,37 @@
 {
   "name": "devenney.io",
-  "version": "1.0.0",
-  "description": "The public website code for https://devenney.io/",
+  "version": "0.1.0",
+  "description": "Website code for https://devenney.io",
   "main": "index.js",
-  "repository": "https://github.com/devenney/devenney.io",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/devenney/devenney.io.git"
+  },
   "author": "Brendan Devenney <brendan@devenney.io>",
   "license": "MIT",
-  "scripts": {
-    "build": "webpack"
+  "bugs": {
+    "url": "https://github.com/devenney/devenney.io/issues"
+  },
+  "homepage": "https://github.com/devenney/devenney.io#readme",
+  "dependencies": {
+    "purecss": "^1.0.0"
   },
   "devDependencies": {
-    "handlebars": "^4.0.11",
-    "handlebars-loader": "^1.6.0",
-    "html-webpack-plugin": "^2.30.1",
-    "webpack": "^3.10.0"
-  },
-  "dependencies": {
-    "bulma": "^0.7.1",
-    "copy-webpack-plugin": "^4.5.2",
-    "css-loader": "^1.0.0",
-    "file-loader": "^1.1.11",
+    "@fortawesome/fontawesome-free": "^5.7.2",
+    "copy-webpack-plugin": "^5.0.0",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
     "font-awesome": "^4.7.0",
-    "node-sass": "^4.9.2",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0"
+    "handlebars": "^4.1.0",
+    "handlebars-loader": "^1.7.1",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   }
 }

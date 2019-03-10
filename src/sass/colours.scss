@@ -1,0 +1,19 @@
+$colours: (
+  'charcoal': #4A4A4A,
+  'french-gray': #C3C3C6,
+  'jumbo': #838386,
+  'outer-space': #363D44,
+  'oslo-gray': #8E9495,
+  'shark': #1E1E24,
+  'whitesmoke': whitesmoke
+);
+
+@function colour($key: 'primary') {
+  @return map-get($colours, $key);
+}
+
+$color-primary: colour('outer-space');
+$color-secondary: colour('charcoal');
+$color-background: colour('french-gray');
+$color-background-dark: colour('shark');
+$color-background-light: colour('whitesmoke');
