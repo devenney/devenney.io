@@ -25,26 +25,21 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
-      },
-      {
-        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/',
-          }
-        }
-      ]
-    }]
+      }]
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: 'src/images',
-        to: 'images',
-      }
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+          {
+            from: "src/images",
+            to: "images",
+          },
+          {
+            from: "src/js/direct",
+            to: "js",
+          },
+        ]
+      }),
     new HtmlWebpackPlugin({
       hash: true,
       template: '!!handlebars-loader?helperDirs=' + path.resolve(__dirname, 'src/js/handlebars-helpers') + '!src/templates/index.hbs'

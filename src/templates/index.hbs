@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Brendan Devenney</title>
@@ -21,138 +22,156 @@
     {{> partials/ga }}
 
     <script src="main.js" ></script>
+    <script src="js/modal.js"></script>
+    <script src="js/switch.js"></script>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <div class="nav">
-    <div class="nav-header">
-      <div class="nav-title">
-        <b>Dev</b>enney
-      </div>
-    </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-    <input type="checkbox" id="nav-check">
-    <div class="nav-links">
-      <a href="https://github.com/devenney" target="_blank"><i class="fab fa-github"></i> Github</a>
-      |
-      <a href="https://t.me/devenneybot" target="_blank"><i class="fas fa-dice-d20"></i> Dicebot</a>
-      <a href="https://reverie.oneirism.co" target="_blank"><i class="fas fa-hat-wizard"></i> Reverie</a>
-    </div>
-  </div>
+  <main class="container">
+    <section>
+      <nav>
+        <ul>
+          <li><kbd>> Brendan Devenney</kbd></li>
+        </ul>
+        <ul>
+          <li role="list">
+            <summary aria-haspopup="listbox" role="link"><i class="fa-solid fa-hand-sparkles"></i> Bag of Holding</summary>
+            <ul role="listbox">
+              <li><a href="https://github.com/devenney"><i class="fa-brands fa-square-github"></i> GitHub</a></li>
+              <li><a href="https://reverie.oneirism.co"><i class="fa-solid fa-hat-wizard"></i> Reverie</a></li>
+              <li><a href="https://t.me/devenneybot"><i class="fa-solid fa-dice"></i> Dicebot</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </section>
 
-  <div class="container">
-    <!-- Hero -->
-    <div class="hero">
-      <div class="header">
-        <h1 class="title">BRENDAN DEVENNEY</h1>
-        <h2 class="subtitle tight">Software Engineer</h2>
-      </div>
-    </div>
+    <section>
+      <h1>Professional Experience</h1>
+      <article id="article">
+        <kbd>Current</kbd>
+        <hgroup>
+          <h2> Head of International Engineering</h2>
+          <h3><a href="https://form3.tech">Form3 Financial Cloud</a></h3>
+        </hgroup>
+        Delivered two MVPs for cross-border payment instructions: direct<sup><a href="https://www.form3.tech/why-form3/press/form3-to-launch-cloud-native-api-swift-connectivity">1</a></sup> and indirect<sup><a href="https://www.form3.tech/why-form3/press/cross-border-goldman-sachs">2</a></sup>.
+        <footer>
+          <details>
+            <summary role="button" class="secondary"><kbd>2019-2022</kbd> <a href="https://form3.tech">Form3</a></summary>
+            <article>
+              <hgroup>
+                <h5>Lead Engineer</h5>
+                <h6>2021-2022</h6>
+              </hgroup>
+              Delivered an instant domestic payments solution for major and big four bank(s).<sup><a href="https://www.mastercard.com/news/europe/en-uk/newsroom/press-releases/en-gb/2021/july/mastercard-launches-the-next-generation-payport-real-time-payments-gateway/">3</a></sup>
+            </article>
 
-    <!-- Skillset -->
-    <div class="banner">
-      <h1 class="title">Skillset</h1>
-    </div>
+            <article>
+              <hgroup>
+                <h5>Senior Engineer</h5>
+                <h6>2019-2021</h6>
+              </hgroup>
+              Laid the foundations for the future of UK domestic payments.
+            </article>
+          </details>
+          <details>
+            <summary role="button" class="secondary"><kbd>2018-2019</kbd> <a href="https://www.cloudreach.com/en/">Cloudreach</a></summary>
+            <article>
+              <hgroup>
+                <h5>Cloud Improvement Engineer</h5>
+                <h6>2019-2019</h6>
+              </hgroup>
+              Core contributor to <a href="https://github.com/Sceptre/sceptre">Sceptre</a>, Cloudreach's open source infrastructure orchestration tool written in Python.
+            </article>
 
-    <div class="cgrid">
-      <div class="pure-g">
-        <!-- Software Engineering -->
-        <div class="pure-u-1 pure-u-lg-1-3 notification">
-          <div class="pure-u-1 notification sandwiched is-dark">
-            <h2 class="title">Software Development</h3>
-          </div>
+            <article>
+              <hgroup>
+                <h5>DevOps Engineer</h5>
+                <h6>2019-2019</h6>
+                Provided cloud architecture expertise to customers embarking on digital transformation journeys.
+              </hgroup>
+            </article>
+          </details>
+          <details>
+            <summary role="button" class="secondary"><kbd>2013-2018</kbd> <a href="https://approov.io/">Approov</a></summary>
+            <article>
+            <hgroup>
+              <h5>Software Engineer</h5>
+              <h6>2014-2018</h6>
+            </hgroup>
+            Built a novel mobile runtime security solution with engineers who remain my closest friends to this day. <i class="fa-solid fa-heart"></i>
+            </article>
 
-          {{> partials/item title="Golang" subtitle=(split 'Three years of industry experience delivering scalable and secure web-facing services.;Significant contributions to the core functionality of Hashicorp\'s <a href="#packer">Packer</a>.') }}
+            <article>
+              <hgroup>
+                <h5>Software Test Engineer</h5>
+                <h6>2013-2014</h6>
+              </hgroup>
+              Third year university placement. Standing on the shoulders of giants.
+            </article>
+          </details>
+        </footer>
+      </article>
+    </section>
+  </main>
 
-          {{> partials/item title="Python" subtitle=(split 'Four years of industry experience delivering everything from web services to scripts.;A wealth of side-projects from <a href="#dicebot">serverless bots</a> to <a href="#reverie">monolithic Django apps</a>.') }}
+  <footer class="container">
+    <hr>
+    <nav>
+      <ul>
+        <li>
+          <i data-target="modal-easter-egg" ondblclick="toggleModal(event)" class="fa-solid fa-city"></i>
+        </li>
+      </ul>
+      <ul>
+        <li>Code licensed <a href="https://github.com/devenney/devenney.io/blob/master/LICENSE">MIT</a></li>
+      </ul>
+      <ul>
+        <li><i onClick="switchTheme(event)" class="fa-regular fa-lightbulb"></i></li>
+      </ul>
+    </nav> 
+  </footer>
 
-          {{> partials/item title="Open Source" subtitle=(split 'Fanatical about open source, from <a href="#packer">Packer</a> to <a href="#sceptre">Sceptre</a>.;Actively seeking more opportunities - hit me up!') }}
-        </div>
-
-        <!-- Reliability Engineering -->
-        <div class="pure-u-1 pure-u-lg-1-3 notification">
-          <div class="pure-u-1 notification sandwiched is-dark">
-            <h2 class="title">Reliability Engineering</h3>
-          </div>
-
-          {{> partials/item title="Automation" subtitle=(split 'Continuous compliance and drift remediation for an estate of 10000+ machines.;SCM Gatekeeping integrated with ChatOps.') }}
-
-          {{> partials/item title="CI/CD" subtitle=(split 'Jenkins and Travis are my stomping grounds. Check out the <a href="#reverie">Reverie</a> PRs for a sneak peek of the standards I set myself.') }}
-
-          {{> partials/item title="Monitoring" subtitle=(split 'Three years of industry experience delivering scalable and secure web-facing services.') }}
-
-        </div>
-
-        <!-- Reliability Engineering -->
-        <div class="pure-u-1 pure-u-lg-1-3 notification">
-          <div class="pure-u-1 notification sandwiched is-dark">
-            <h2 class="title">Process Improvements</h3>
-          </div>
-
-          {{> partials/item title="Agile" subtitle=(split 'Proven track record of Agile improvement in large, distributed teams.;Ability to implement, execute and coach on relative Agile best practices.') }}
-
-          {{> partials/item title="Culture" subtitle=(split 'Multiple years of experience improving culture in enterprise environments.') }}
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Track Record -->
-    <div class="banner">
-      <h1 class="title">Track Record</h1>
-    </div>
-
-    <div class="cgrid">
-      <div class="pure-g">
-        {{> partials/project title="Approov" link="https://approov.io" subtitle=(split 'Worked as a core member of the <a href="https://approov.io">Approov</a> development team.;Written defensively in Golang, deployed scalably in the cloud.') }}
-
-        {{> partials/project title="Dicebot" link="https://t.me/devenneybot" github="https://github.com/oneirism/dicebot" subtitle=(split 'A polyhedral dice-rolling Telegram bot. Supports inline and query commands.;One hundred percent serverless and free.') }}
-
-        {{> partials/project title="Packer" link="https://packer.io" github="https://github.com/hashicorp/packer" subtitle=(split 'A machine image creation automation tool by <a href="https://hashicorp.com">Hashicorp</a>.;Significant contributions to the core functionality.') }}
-
-        {{> partials/project title="Sceptre" link="https://sceptre.cloudreach.com" github="https://github.com/cloudreach/sceptre" subtitle=(split 'A cloud deployment automation tool by <a href="https://cloudreach.com">Cloudreach</a>.;Contributions to support customers\' utilisation of the tool.') }}
-
-        {{> partials/project title="Reverie" link="https://reverie.oneirism.co" github="https://github.com/oneirism/reverie" subtitle=(split 'A campaign tracker for tabletop role-playing games.;Written in Django with <i class="fas fa-heart"></i>.') }}
-
-      </div>
-    </div>
-
-    <!-- Certifications -->
-    <div class="banner">
-      <h1 class="title">Certifications</h1>
-    </div>
-
-    <div class="cgrid">
-      <div class="pure-g">
-        <!-- AWS -->
-        <div class="pure-u-1 pure-u-lg-1-3">
-          <h2 class="title">Amazon Web Services</h2>
-
-          {{> partials/cert link="https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2018-11-06&ci=AWS00273339" src="images/sap.png" }}
-
-          {{> partials/cert link="https://www.certmetrics.com/amazon/public/badge.aspx?i=2&t=c&d=2018-03-21&ci=AWS00273339" src="images/dva.png" small=true}}
-
-          {{> partials/cert link="https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2018-03-15&ci=AWS00273339" src="images/saa.png" small=true}}
-
-          {{> partials/cert link="https://www.certmetrics.com/amazon/public/badge.aspx?i=3&t=c&d=2018-03-23&ci=AWS00273339" src="images/soa.png" small=true}}
-        </div>
-
-        <!-- Agile -->
-        <div class="pure-u-1 pure-u-lg-1-3">
-          <h2 class="title">Agile</h2>
-
-          {{> partials/cert link="https://scrum.org/user/418562" src="images/psm1.png"}}
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <dialog id="modal-easter-egg" data-target="modal-easter-egg" onClick="toggleModal(event)">
+    <article>      
+        <p>My dearest Erin,</p>
+        <p></p>
+        <p>
+          Tonight will mark the end of a life long dream of mine.
+          The completion of a labour I began as a child, even before I knew the words for it.
+          Before I knew the ways to accomplish such a task.
+          Even now my heart is heavy with dread;
+          I fear I've built a great and powerful evil.
+          Or rather, together, Albert and I have built it.
+          I know that I am to blame.
+          I allowed Albert to persuade me to change the designs. 
+          I allowed this perversion of my course.
+        </p>
+        <p>
+          This new machine that we've built is unlike any I ever imagined.
+          It looks... like a man.
+          A lifeless steel man.
+          Albert convinced me that even with the new Geological Unmanned Terraforming System we designed, the task of extracting the ore is still too dangerous for a human.
+          He plans to completely replace human workers in the mining sector.
+          The idea of displacing so many men... the annihilation of countless jobs in the name of safety seems an unbalanced trade off.
+          What is worse, the latest prototypes have been revised to carry small firearms.
+        </p>
+        <p>              
+          Erin, I fear that I have put you and this entire city in danger.
+          I will speak to him tonight on the matter.
+          Perhaps I can persuade him to scrap the whole project.
+          In the meantime, please be careful. This world is getting darker all the time.
+        </p>
+        <p>
+          I weep at the thought of something terrible happening to you.
+          I could not bear it.
+        </p>
+        <p></p>
+        <p>
+          All my love,
+          <br />Brendan
+        </p>
+    </article>
+  </dialog>
 </body>
 </html>

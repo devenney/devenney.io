@@ -1,19 +1,37 @@
-$colours: (
-  'charcoal': #4A4A4A,
-  'french-gray': #C3C3C6,
-  'jumbo': #838386,
-  'outer-space': #363D44,
-  'oslo-gray': #8E9495,
-  'shark': #1E1E24,
-  'whitesmoke': whitesmoke
-);
-
-@function colour($key: 'primary') {
-  @return map-get($colours, $key);
+/* Deep-orange Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #f4511e;
+  --primary-hover: #e64a19;
+  --primary-focus: rgba(244, 81, 30, 0.125);
+  --primary-inverse: #FFF;
 }
 
-$color-primary: colour('outer-space');
-$color-secondary: colour('charcoal');
-$color-background: colour('french-gray');
-$color-background-dark: colour('shark');
-$color-background-light: colour('whitesmoke');
+/* Deep-orange Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary: #f4511e;
+    --primary-hover: #ff5722;
+    --primary-focus: rgba(244, 81, 30, 0.25);
+    --primary-inverse: #FFF;
+  }
+}
+
+/* Deep-orange Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+  --primary: #f4511e;
+  --primary-hover: #ff5722;
+  --primary-focus: rgba(244, 81, 30, 0.25);
+  --primary-inverse: #FFF;
+}
+
+/* Deep-orange (Common styles) */
+:root {
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
