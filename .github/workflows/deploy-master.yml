@@ -29,7 +29,7 @@ jobs:
         aws-secret-access-key: ${{ secrets. AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
 
-    - name: Publish to actual
+    - name: Publish to preview
       if: 
       run: |
         aws s3 sync dist s3://${{ secrets.PRE_AWS_S3_BUCKET_NAME }}/
