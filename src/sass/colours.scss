@@ -2,30 +2,30 @@
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-  --primary: #4B497A;
-  --primary-hover: #5E7691;
+  --primary: #EF6C8A;
+  --primary-hover: #EC5578;
   --primary-focus: rgba(75, 73, 122, 0.125);
-  --primary-inverse: #E6E3D3;
+  --primary-inverse: #F5F5F5;
 }
 
 /* Shadow of the Eyes // dark scheme (auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --primary: #5E7691;
-    --primary-hover: #4B497A;
+    --primary: #EC5578;
+    --primary-hover: #EF6C8A;
     --primary-focus: rgba(75, 73, 122, 0.25);
-    --primary-inverse: #E6E3D3;
+    --primary-inverse: #F5F5F5;
   }
 }
 
 /* Shadow of the Eyes // dark scheme (forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
-  --primary: #5E7691;
-  --primary-hover: #4B497A;
+  --primary: #EC5578;
+  --primary-hover: #EF6C8A;
   --primary-focus: rgba(75, 73, 122, 025);
-  --primary-inverse: #E6E3D3;
+  --primary-inverse: #F5F5F5;
 }
 
 /* Shadow of the Eyes (common styles) */
@@ -34,4 +34,14 @@
   --form-element-focus-color: var(--primary-focus);
   --switch-color: var(--primary-inverse);
   --switch-checked-background-color: var(--primary);
+}
+
+.blink {
+  animation: blinker 2s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
