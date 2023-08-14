@@ -1,13 +1,9 @@
-name: Deploy Actual
+name: Deploy Preview
 
 on:
   push:
     branches:
       - master
-
-defaults:
-  run:
-    working-directory: packages/container
 
 jobs:
   build:
@@ -33,6 +29,7 @@ jobs:
         aws-secret-access-key: ${{ secrets. AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
 
-    - name: Copy files to the s3 website content bucket
+    - name: Publish to actual
+      if: 
       run: |
-        aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/
+        aws s3 sync dist s3://${{ secrets.PRE_AWS_S3_BUCKET_NAME }}/
