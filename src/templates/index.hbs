@@ -24,14 +24,15 @@
     <script src="main.js" ></script>
     <script src="js/modal.js"></script>
     <script src="js/switch.js"></script>
+    <script src="js/init.js"></script>
 </head>
 
-<body>
+<body onload="init()">
   <main class="container">
     <section>
       <nav>
         <ul>
-          <li><kbd>> Brendan Devenney</kbd></li>
+          <li><kbd>> Brendan Devenney<b class="blink">_</b></kbd></li>
         </ul>
         <ul>
           <li role="list">
@@ -47,7 +48,6 @@
     </section>
 
     <section>
-      <h1>Professional Experience</h1>
       <article id="article">
         <hgroup>
           <kbd>Current</kbd>
@@ -111,7 +111,7 @@
         <li>Code licensed <a href="https://github.com/devenney/devenney.io/blob/master/LICENSE">MIT</a></li>
       </ul>
       <ul>
-        <li><i onClick="switchTheme(event)" class="fa-regular fa-lightbulb"></i></li>
+        <li><span id="lightswitch" data-tooltip=""><i onClick="switchTheme(event)" class="fa-regular fa-lightbulb"></span></i></li>
       </ul>
     </nav> 
   </footer>
