@@ -2,30 +2,30 @@
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
-  --primary: #f4511e;
-  --primary-hover: #e64a19;
-  --primary-focus: rgba(244, 81, 30, 0.125);
-  --primary-inverse: #FFF;
+  --primary: #4B497A;
+  --primary-hover: #5E7691;
+  --primary-focus: rgba(75, 73, 122, 0.125);
+  --primary-inverse: #E6E3D3;
 }
 
 /* Deep-orange Dark scheme (Auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --primary: #f4511e;
-    --primary-hover: #ff5722;
-    --primary-focus: rgba(244, 81, 30, 0.25);
-    --primary-inverse: #FFF;
+    --primary: #4B497A;
+    --primary-hover: #5E7691;
+    --primary-focus: rgba(75, 73, 122, 0.25);
+    --primary-inverse: #E6E3D3;
   }
 }
 
 /* Deep-orange Dark scheme (Forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
-  --primary: #f4511e;
-  --primary-hover: #ff5722;
-  --primary-focus: rgba(244, 81, 30, 0.25);
-  --primary-inverse: #FFF;
+  --primary: #4B497A;
+  --primary-hover: #5E7691;
+  --primary-focus: rgba(75, 73, 122, 025);
+  --primary-inverse: #E6E3D3;
 }
 
 /* Deep-orange (Common styles) */
