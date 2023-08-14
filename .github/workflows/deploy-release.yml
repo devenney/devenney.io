@@ -32,3 +32,7 @@ jobs:
     - name: Publish to actual 
       run: |
         aws s3 sync dist s3://${{ secrets.ACTUAL_AWS_S3_BUCKET_NAME }}/
+
+    - name: Invalidate CloudFront
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.ACTUAL_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
