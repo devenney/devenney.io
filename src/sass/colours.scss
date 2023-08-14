@@ -1,4 +1,4 @@
-/* Deep-orange Light scheme (Default) */
+/* Shadow of the Eyes // light scheme (default) */
 /* Can be forced with data-theme="light" */
 [data-theme="light"],
 :root:not([data-theme="dark"]) {
@@ -8,27 +8,27 @@
   --primary-inverse: #E6E3D3;
 }
 
-/* Deep-orange Dark scheme (Auto) */
+/* Shadow of the Eyes // dark scheme (auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --primary: #4B497A;
-    --primary-hover: #5E7691;
+    --primary: #5E7691;
+    --primary-hover: #4B497A;
     --primary-focus: rgba(75, 73, 122, 0.25);
     --primary-inverse: #E6E3D3;
   }
 }
 
-/* Deep-orange Dark scheme (Forced) */
+/* Shadow of the Eyes // dark scheme (forced) */
 /* Enabled if forced with data-theme="dark" */
 [data-theme="dark"] {
-  --primary: #4B497A;
-  --primary-hover: #5E7691;
+  --primary: #5E7691;
+  --primary-hover: #4B497A;
   --primary-focus: rgba(75, 73, 122, 025);
   --primary-inverse: #E6E3D3;
 }
 
-/* Deep-orange (Common styles) */
+/* Shadow of the Eyes (common styles) */
 :root {
   --form-element-active-border-color: var(--primary);
   --form-element-focus-color: var(--primary-focus);
