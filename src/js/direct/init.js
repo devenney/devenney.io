@@ -1,3 +1,4 @@
 function init() {
     setLightswitchTooltip()
+    initARG()
 }
