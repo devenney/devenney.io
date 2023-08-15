@@ -34,5 +34,5 @@ const switchTheme = (event) => {
 function setLightswitchTooltip() {
     lightswitch = document.getElementById("lightswitch")
     
-    lightswitch.setAttribute("data-tooltip", isLight()? lightOnText : lightOffText)
+    lightswitch.setAttribute("title", isLight()? lightOnText : lightOffText)
 }

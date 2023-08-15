@@ -25,16 +25,18 @@
     <script src="js/modal.js"></script>
     <script src="js/switch.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/arg.js"></script>
 </head>
 
 <body onload="init()">
-  <main class="container">
+  <main class="container" id="main">
     <section>
       <nav>
-        <ul>
+        <ul id="upper-nav-left">
           <li><kbd>> Brendan Devenney<b class="blink">_</b></kbd></li>
         </ul>
-        <ul>
+        <ul id="upper-nav-middle"></ul>
+        <ul id="upper-nav-right">
           <li role="list">
             <summary aria-haspopup="listbox" role="link"><i class="fa-solid fa-hand-sparkles"></i> Bag of Holding</summary>
             <ul role="listbox">
@@ -111,7 +113,7 @@
         <li>Code licensed <a href="https://github.com/devenney/devenney.io/blob/master/LICENSE">MIT</a></li>
       </ul>
       <ul>
-        <li><span id="lightswitch" data-tooltip="" data-placement="left"><i onClick="switchTheme(event)" class="fa-regular fa-lightbulb"></span></i></li>
+        <li><abbr id="lightswitch" title=""><i onClick="switchTheme(event)" class="fa-regular fa-lightbulb"></abbr></i></li>
       </ul>
     </nav> 
   </footer>
@@ -135,7 +137,7 @@
           This new machine that we've built is unlike any I ever imagined.
           It looks... like a man.
           A lifeless steel man.
-          Albert convinced me that even with the new Geological Unmanned Terraforming System we designed, the task of extracting the ore is still too dangerous for a human.
+          Albert convinced me that even with the new <strong>Geological Unmanned Terraforming System</strong> we designed, the task of extracting the ore is still too dangerous for a human.
           He plans to completely replace human workers in the mining sector.
           The idea of displacing so many men... the annihilation of countless jobs in the name of safety seems an unbalanced trade off.
           What is worse, the latest prototypes have been revised to carry small firearms.
