@@ -38,7 +38,7 @@ function protomanWasBorn() {
     main = document.getElementById("main")
 
     let iframe = document.createElement("iframe")
-    iframe.setAttribute("src", "https://megaman.pomle.com/")
+    iframe.setAttribute("src", "https://static.arcadespot.com/retroemulator.php?system=nes&game=2016/08/mega-man.nes")
     iframe.setAttribute("class", "fullscreen")
     iframe.setAttribute("scrolling", "no")
     iframe.setAttribute("frameborder", 0)
