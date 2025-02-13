@@ -37,6 +37,7 @@ const blogPosts = glob.sync(`${BLOG_DIR}/*.md`).map((file) => {
 
   return {
       title: attributes.title,
+      author: attributes.author || "Brendan Devenney",
       date: formattedDate,
       description: attributes.description,
       slug: path.basename(file, ".md"),
@@ -85,6 +86,14 @@ module.exports = {
           {
             from: "src/js/direct",
             to: "js",
+          },
+          {
+            from: "node_modules/prismjs/themes/prism.css",
+            to: "css/prism.css"
+          },
+          {
+            from: "node_modules/prismjs/themes/prism-tomorrow.css",
+            to: "css/prism-tomorrow.css"
           },
         ]
       }),

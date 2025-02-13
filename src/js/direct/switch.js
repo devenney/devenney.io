@@ -2,6 +2,8 @@ const dataThemeAttribute = "data-theme"
 const lightOffText="Cast: Light (Evocation)"
 const lightOnText="Cast: Darkness (Evocation)"
 
+const prismLink = document.getElementById("prism-theme");
+
 let firstInvocation = true
 
 function isLight() {
@@ -27,6 +29,7 @@ const switchTheme = (event) => {
 
     html = document.documentElement
     html.setAttribute(dataThemeAttribute, isLight()? 'dark':'light')
+    prismLink.setAttribute("href", isLight()?"/css/prism.css":"/css/prism-tomorrow.css");
 
     setLightswitchTooltip()
 };

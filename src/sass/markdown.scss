@@ -1,0 +1,58 @@
+$primary-color: var(--primary);
+$contrast-bg: var(--contrast-background);
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+
+.markdown {
+    margin: auto;
+
+    p {
+        line-height: 1.6;
+        margin-bottom: $spacing-md;
+    }
+
+    h2, h3, h4, h5, h6 {
+        margin-top: $spacing-md;
+        margin-bottom: $spacing-sm;
+    }
+
+    blockquote {
+        font-style: italic;
+        border-left: 4px solid $primary-color;
+        padding-left: $spacing-md;
+        margin-left: 0;
+        margin-bottom: $spacing-md;
+    }
+
+    pre {
+        background: $contrast-bg;
+        padding: $spacing-md;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin-bottom: $spacing-md;
+    }
+
+    code {
+        font-family: "Courier New", monospace;
+        background: $contrast-bg;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+    }
+
+    ul, ol {
+        margin-left: 1.5rem;
+        padding-left: 1rem;
+        margin-bottom: $spacing-md;
+
+        li {
+            margin-bottom: $spacing-sm;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: $spacing-md;
+    }
+}
