@@ -2,53 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Brendan Devenney</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:site_name" content="Brendan Devenney">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Brendan Devenney - Software Engineer">
-    <meta name="description" property="og:description" content="Brendan Devenney, an Edinburgh-based software and reliability engineer.">
-    <meta property="og:image" content="https://bren.dev/images/logo_sm.png">
-    <meta property="og:image:width" content="1068" />
-    <meta property="og:image:height" content="432" />
-
-    <title>Brendan Devenney - Software Engineer</title>
-
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
-
-    {{> partials/ga }}
-
-    <script src="main.js" ></script>
-    <script src="js/modal.js"></script>
-    <script src="js/switch.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/arg.js"></script>
+  {{> partials/head }}
+  <title>Brendan Devenney</title>
 </head>
 
 <body onload="init()">
   <main class="container" id="main">
-    <section>
-      <nav>
-        <ul id="upper-nav-left">
-          <li><kbd>> Brendan Devenney<b class="blink">_</b></kbd></li>
-        </ul>
-        <ul id="upper-nav-middle"></ul>
-        <ul id="upper-nav-right">
-          <li role="list">
-            <summary aria-haspopup="listbox" role="link"><i class="fa-solid fa-hand-sparkles"></i> Bag of Holding</summary>
-            <ul role="listbox">
-              <li><a href="https://www.linkedin.com/in/brendan-devenney/"><i class ="fa-brands fa-linkedin"></i> LinkedIn</a></li>
-              <li><a href="https://github.com/devenney"><i class="fa-brands fa-square-github"></i> GitHub</a></li>
-              <li><a href="https://github.com/oneirism/reverie"><i class="fa-solid fa-hat-wizard"></i> Reverie (Sunset)</a></li>
-              <li><a href="https://github.com/oneirism/dicebot"><i class="fa-solid fa-dice"></i> Dicebot (Sunset)</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </section>
+    {{> partials/nav }}
 
     <section>
       <article id="article">
@@ -103,63 +63,6 @@
     </section>
   </main>
 
-  <footer class="container">
-    <hr>
-    <nav>
-      <ul>
-        <li>
-          <i data-target="modal-easter-egg" ondblclick="toggleModal(event)" class="fa-solid fa-city"></i>
-        </li>
-      </ul>
-      <ul>
-        <li>Code licensed <a href="https://github.com/devenney/devenney.io/blob/master/LICENSE">MIT</a></li>
-      </ul>
-      <ul>
-        <li><abbr id="lightswitch" title=""><i onClick="switchTheme(event)" class="fa-regular fa-lightbulb"></abbr></i></li>
-      </ul>
-    </nav> 
-  </footer>
-
-  <dialog id="modal-easter-egg" data-target="modal-easter-egg" onClick="toggleModal(event)">
-    <article>      
-        <p>My dearest Erin,</p>
-        <p></p>
-        <p>
-          Tonight will mark the end of a life long dream of mine.
-          The completion of a labour I began as a child, even before I knew the words for it.
-          Before I knew the ways to accomplish such a task.
-          Even now my heart is heavy with dread;
-          I fear I've built a great and powerful evil.
-          Or rather, together, Albert and I have built it.
-          I know that I am to blame.
-          I allowed Albert to persuade me to change the designs. 
-          I allowed this perversion of my course.
-        </p>
-        <p>
-          This new machine that we've built is unlike any I ever imagined.
-          It looks... like a man.
-          A lifeless steel man.
-          Albert convinced me that even with the new <strong>Geological Unmanned Terraforming System</strong> we designed, the task of extracting the ore is still too dangerous for a human.
-          He plans to completely replace human workers in the mining sector.
-          The idea of displacing so many men... the annihilation of countless jobs in the name of safety seems an unbalanced trade off.
-          What is worse, the latest prototypes have been revised to carry small firearms.
-        </p>
-        <p>              
-          Erin, I fear that I have put you and this entire city in danger.
-          I will speak to him tonight on the matter.
-          Perhaps I can persuade him to scrap the whole project.
-          In the meantime, please be careful. This world is getting darker all the time.
-        </p>
-        <p>
-          I weep at the thought of something terrible happening to you.
-          I could not bear it.
-        </p>
-        <p></p>
-        <p>
-          All my love,
-          <br />Brendan
-        </p>
-    </article>
-  </dialog>
+  {{> partials/footer}}
 </body>
 </html>

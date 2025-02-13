@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx webpack",
+    "local": "npx webpack-dev-server --host 127.0.0.1 --port 80 --no-client-overlay-warnings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,12 +20,20 @@
   "homepage": "https://github.com/devenney/devenney.io#readme",
   "dependencies": {
     "@picocss/pico": "^1.5.10",
-    "purecss": "^3.0.0"
+    "acorn-import-assertions": "^1.9.0",
+    "date-fns": "^4.1.0",
+    "front-matter": "^4.0.2",
+    "fs-extra": "^11.3.0",
+    "glob": "^11.0.1",
+    "markdown-it": "^14.1.0",
+    "prismjs": "^1.29.0",
+    "purecss": "^3.0.0",
+    "webpack-dev-server": "^5.2.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
     "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.8.1",
+    "css-loader": "^6.11.0",
     "file-loader": "^6.2.0",
     "font-awesome": "^4.7.0",
     "handlebars": "^4.7.8",
@@ -32,8 +41,8 @@
     "html-webpack-plugin": "^5.5.3",
     "sass": "^1.65.1",
     "sass-loader": "^13.3.2",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.94.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   }
 }
