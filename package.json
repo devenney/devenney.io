@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx webpack",
+    "local": "npx webpack-dev-server --host 127.0.0.1 --port 80 --no-client-overlay-warnings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +20,13 @@
   "homepage": "https://github.com/devenney/devenney.io#readme",
   "dependencies": {
     "@picocss/pico": "^1.5.10",
-    "purecss": "^3.0.0"
+    "date-fns": "^4.1.0",
+    "front-matter": "^4.0.2",
+    "fs-extra": "^11.3.0",
+    "glob": "^11.0.1",
+    "markdown-it": "^14.1.0",
+    "purecss": "^3.0.0",
+    "webpack-dev-server": "^5.2.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",

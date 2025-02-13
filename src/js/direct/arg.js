@@ -1,14 +1,19 @@
 let theFuture = "Geological Unmanned Terraforming System";
+let audio = new Audio('/assets/audio/megaman-royaltyfree.mp3');
+audio.volume = 0.1;
 
 function initARG() {
-    egg = document.getElementById("modal-easter-egg")
-    egg.addEventListener('mouseup', function() {
-        var text = getSelectedText()
-        if (text == theFuture) {
+    document.addEventListener('selectionchange', function() {
+        selection = document.getSelection()
+
+        var selectedText = selection ? selection.toString() : null;
+
+        // Warning for old browsers again: May want to polyfill https://caniuse.com/#search=includes
+        if (selectedText == theFuture) {
             crtSwitch()
             theWillOfOne()
         }
-    })
+    });
 }
 
 
@@ -25,7 +30,7 @@ function theWillOfOne() {
     banner = document.getElementById("upper-nav-middle")
 
     let img = document.createElement("img")
-    img.setAttribute("src", "images/mm.png")
+    img.setAttribute("src", "/assets/images/mm.png")
     img.setAttribute("height", 32)
     img.setAttribute("width", 32)
 
@@ -35,15 +40,12 @@ function theWillOfOne() {
 }
 
 function protomanWasBorn() {
-    main = document.getElementById("main")
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause()
+    }
 
-    let iframe = document.createElement("iframe")
-    iframe.setAttribute("src", "https://static.arcadespot.com/retroemulator.php?system=nes&game=2016/08/mega-man.nes")
-    iframe.setAttribute("class", "fullscreen")
-    iframe.setAttribute("scrolling", "no")
-    iframe.setAttribute("frameborder", 0)
-
-    main.prepend(iframe)
 }
 
 function crtSwitch() {

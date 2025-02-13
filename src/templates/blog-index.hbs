@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> partials/head }}
+  <title>Brendan Devenney - Blog</title>
+</head>
+
+<body onload="init()">
+  <main class="container" id="main">
+    {{> partials/nav }}
+
+   <section>
+    {{#each blogPosts}}
+    <article>
+        <hgroup>
+          <h2><a href="/blog/{{slug}}.html">{{title}}</a></h2>
+          <p>{{description}}</p>
+          <p>Posted by <b>Brendan Devenney</b> on {{date}}</p>
+        </hgroup>
+    </article>
+    {{/each}}  
+    </section>
+  </main>
+
+  {{> partials/footer}}
+</body>
+</html>
