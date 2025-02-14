@@ -99,8 +99,14 @@ module.exports = {
       }),
     new HtmlWebpackPlugin({
         hash: true,
-        template: "src/templates/index.hbs",  // Remove query string loader
+        template: "src/templates/index.hbs",
         templateParameters: {},
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: "privacy.html",
+      template: "src/templates/privacy.hbs",
+      templateParameters: {},
     }),
     ...blogPages, // Generates blog post pages dynamically
     new HtmlWebpackPlugin({

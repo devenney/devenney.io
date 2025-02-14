@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> partials/head }}
+  <title>Brendan Devenney - {{title}}</title>
+</head>
+
+<body onload="init()">
+  <main class="container" id="main">
+    {{> partials/nav }}
+
+    <section class="markdown">
+        <article>
+            <header>
+                <hgroup>
+                    <h1>Privacy Policy</h1>
+                    <p>Effective Date: 2025</p>
+                </hgroup>
+            </header>
+
+            <h2>Introduction</h2>
+            <p>We respect your privacy and are committed to keeping this website simple and transparent.</p>
+            <p>This website does not track users, collect personal data, or use third-party analytics.</p>
+
+            <br />
+
+            <h2>Cookies We Use</h2>
+            <p>This website only uses one essential cookie to remember your light/dark mode preference.</p>
+
+            <h4>Light/Dark Mode Cookie</h4>
+            <ul>
+                <li><strong>Purpose:</strong> Remembers your preferred theme (light or dark mode) for a better browsing experience.</li>
+                <li><strong>Data Stored:</strong> Only stores either "light" or "dark" (no personal information).</li>
+                <li><strong>Expiration:</strong> Stored in your browser until manually cleared.</li>
+                <li><strong>Opt-Out:</strong> You can remove this cookie at any time through your browser settings.</li>
+            </ul>
+
+            <br />
+
+            <h2>No Tracking or Analytics</h2>
+            <p>We do not track visitors, collect IP addresses, or store any analytics data.</p>
+
+            <ul>
+                <li><strong>No Google Analytics</strong> or third-party analytics tools.</li>
+                <li><strong>No advertising trackers</strong> or third-party scripts.</li>
+                <li><strong>No IP logging</strong> or fingerprinting.</li>
+            </ul>
+
+            <br />
+
+            <h2>Your Privacy Choices</h2>
+            <p>Since we do not collect personal data, there are no forms, accounts, or opt-out requirements.</p>
+            <p>If you wish to delete the light/dark mode cookie, you can do so via your browser settings.</p>
+
+            <br />
+
+            <h2>Changes to This Policy</h2>
+            <p>If we make changes to how this website handles privacy, this page will be updated accordingly.</p>
+            <p>If you have any questions, feel free to contact me at <a href="webmaster@devenney.io">webmaster@devenney.io</a>.</p>
+        </article>
+    </section>
+  </main>
+
+  {{> partials/footer}}
+</body>
+</html>
