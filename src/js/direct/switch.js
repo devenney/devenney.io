@@ -6,36 +6,33 @@ const prismLink = document.getElementById("prism-theme");
 
 let firstInvocation = true
 
-function isLight() {
-    if (firstInvocation) {
-        html = document.documentElement
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "auto"; // Default to system preference
+    setTheme(savedTheme);
+});
 
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            html.setAttribute(dataThemeAttribute, 'dark')
-        } else {
-            html.setAttribute(dataThemeAttribute, 'light')
-        }
+// Function to set the theme
+function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
 
-        firstInvocation = false
-    }
+    html = document.documentElement
+    html.setAttribute(dataThemeAttribute, theme)
 
-    dataTheme = html.getAttribute(dataThemeAttribute)
-    return (dataTheme == 'light')
+    prismLink.setAttribute("href", (theme == "light")?"/css/prism.css":"/css/prism-tomorrow.css");
+
+    lightswitch = document.getElementById("lightswitch")
+    lightswitch.setAttribute("title", (theme == "light") ? lightOnText : lightOffText)
 }
 
 // Toggle theme
 const switchTheme = (event) => {
     event.preventDefault();
 
-    html = document.documentElement
-    html.setAttribute(dataThemeAttribute, isLight()? 'dark':'light')
-    prismLink.setAttribute("href", isLight()?"/css/prism.css":"/css/prism-tomorrow.css");
-
-    setLightswitchTooltip()
+    theme = localStorage.getItem("theme")
+    if (theme == "light") {
+        setTheme("dark")
+    } else {
+        setTheme("light")
+    }
 };
-
-function setLightswitchTooltip() {
-    lightswitch = document.getElementById("lightswitch")
-    
-    lightswitch.setAttribute("title", isLight()? lightOnText : lightOffText)
-}
