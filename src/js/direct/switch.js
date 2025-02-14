@@ -6,11 +6,6 @@ const prismLink = document.getElementById("prism-theme");
 
 let firstInvocation = true
 
-document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "auto"; // Default to system preference
-    setTheme(savedTheme);
-});
-
 // Function to set the theme
 function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
