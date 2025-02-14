@@ -1,15 +1,19 @@
 function init() {
-    setLightswitchTooltip()
     initARG()
     initTheme()
 }
 
 function initTheme() {
-    const prismLink = document.getElementById("prism-theme");
+    theme = localStorage.getItem("theme")
+    if (theme == "auto") {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = "dark"
 
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        prismLink.setAttribute("href", "/css/prism-tomorrow.css")
-    } else {
-        prismLink.setAttribute("href", "/css/prism.css");
-    }
+        } else {
+            theme = "light"
+        }
+        localStorage.setItem("theme", theme)
+    } 
+
+    setTheme(theme);
 }
