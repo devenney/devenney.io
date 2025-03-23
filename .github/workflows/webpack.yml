@@ -1,10 +1,13 @@
-name: NodeJS with Webpack
+name: Webpack
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+
+permissions:
+  contents: read
 
 jobs:
   compile:
