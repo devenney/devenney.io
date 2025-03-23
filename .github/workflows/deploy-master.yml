@@ -22,11 +22,11 @@ jobs:
         npm install
         npx webpack
 
-    - name: Configure AWS credentials (OIDC)
-      uses: aws-actions/configure-aws-credentials@v2
+    - name: Configure AWS Credentials (OIDC)
+      uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: arn:aws:iam::212595788859:role/GHADevenneyIO
         aws-region: eu-west-1
+        role-to-assume: arn:aws:iam::212595788859:role/GHADevenneyIO
 
     - name: Publish to preview
       run: |
