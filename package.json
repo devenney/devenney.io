@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx webpack",
-    "local": "npx webpack-dev-server --host 127.0.0.1 --port 80 --no-client-overlay-warnings",
+    "local": "npx webpack-dev-server --host 127.0.0.1 --port 8000 --no-client-overlay-warnings",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -22,4 +22,4 @@ To serve the code locally, the project uses `webpack-dev-server`. A script is pr
 npm run local
 ```
 
-The hot reloaded code should then be available at http://localhost:80.
+The hot reloaded code should then be available at http://localhost:8000.
