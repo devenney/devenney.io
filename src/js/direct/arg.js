@@ -24,7 +24,7 @@ function getSelectedText() {
         return document.selection.createRange().text;
     }
     return '';
-}​
+}
 
 function theWillOfOne() {
     banner = document.getElementById("upper-nav-middle")
