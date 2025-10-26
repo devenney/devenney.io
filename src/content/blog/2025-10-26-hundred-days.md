@@ -10,15 +10,25 @@ That wasn't how it felt at the time; I'd just been made redundant after several 
 
 But when the dust settled, I realised this was something I'd been quietly wanting for a while: a return to building things myself.
 
+I've tried to be open about how this transition has been good for me. Friends in similar positions have found the insight useful - either to inform a decision or to temper expectations once it's made.
+
+So what are the big differences 100 days in?
+
+## The feedback loop is refreshing
+
+The feedback loop in management plays out over quarters or years. A conversation you have with a direct report has immediate impact, but the _feedback_ comes far down the line. Someone applies for a promotion and gets it because you gave them good advice; or someone resigns because they have been quietly harbouring negative feelings due to a decision you made.
+
+In a traditional engineering role, the feedback loop is day-to-day. You write unit tests that intentionally fail, you code your feature change until those tests pass, and you ship it for review. The code either works or it doesn't. If you missed something, it pops when it hits production. Even then your response is obvious: return to the start of the loop.
+
 ## Scale-up habits die hard
 
 Years in fintech and management shape you in subtle ways. You start to think exclusively in terms of frameworks, alignment, and stakeholders. Every task becomes a project, every project needs a doc, and every decision requires a meeting.
 
-Some of that's necessary in large, regulated environments. It keeps things consistent. Predictable.
+Some of that remains necessary in a focused product company. There is still compliance and customers expect a stable service. These things should remain consistent. Predictable is powerful.
 
-But when you return to a more focused, specialised engineering organisation, you see how much of that is just inertia. How often we mistake coordination for progress.
+But when you return to a more focused, specialised engineering organisation, you see how much of the corporate framework is just inertia. How often we mistake coordination for progress.
 
-Here, we talk, we decide, we build - simple, streamlined, responsive - and I'd forgotten how refreshing that can be.
+Here, we talk, we decide, we build. If it needs heavy process then we implement it. Efficiency is the default, process is case-by-case. It's an inversion of the corporate approach.
 
 ## Relearning the craft
 
@@ -26,46 +36,38 @@ Coming back to hands-on engineering after years in leadership has been humbling.
 
 But I'm also sharper in other ways. Years of reviewing architecture and mentoring engineers have rewired how I think about design and clarity. The output might be slower, but the intent is stronger.
 
-And the best part is the camaraderie. I bring context; my teammates bring modern fluency and technical depth. Together, we meet in the middle. They make me faster; I help them zoom out. It's a better loop than I expected.
+And the best part is the camaraderie. I bring context; my teammates bring modern fluency and technical depth. Together, we meet in the middle. They make me faster; I help them see the bigger picture. It's a better loop than I expected.
 
 ## Ego and perspective
 
 Stepping down from "Head of Engineering" to "Staff Engineer" looks like a demotion on paper. And yes, it messes with your identity for a bit.
 
-There's a part of you that misses being in every conversation, influencing strategy, managing people.
+There's a part of you that misses being in every conversation, influencing strategy, managing people. But then you start delivering again - and you realise how much lighter it feels to just do the work.
 
-But then you start delivering again - and you realise how much lighter it feels to just do the work.
-
-I'm not delegating problems anymore. I'm solving them. My code runs. The metrics improve. The feedback is instant.
-
-And I still get to mentor, guide, and shape decisions - just without the meetings, frameworks, and dotted lines.
+I'm not delegating problems anymore. I'm solving them. My code runs. And I still get to mentor, guide, and shape decisions - just without the meetings, frameworks, and dotted lines.
 
 ## Rediscovering impact
 
-One thing I've learned at Approov is that focus is its own kind of scale.
+One thing I've learned at [Approov](https://approov.io) is that focus scales. You can be lean and still serious. You can be efficient and still ambitious. You can do meaningful work without fifty people in the room.
 
-You can be lean and still serious. You can be efficient and still ambitious.
+When something breaks, you fix it. When something works, you build on it. Things happen for a reason, rather than everything happening because it's prescribed by the internal literature.
 
-You can do meaningful work without fifty people in the room.
+You can literally see your impact in the metrics, the customer attitude, and the day-to-day operations. Your perspective shifts toward what customers actually care about. These combine to prove the viability of a product without the need for an internal committee.
 
-When something breaks, you fix it. When something works, you build on it.
-
-There's no hiding behind process - and that's energising.
+It's energising.
 
 ## The pendulum swings
 
 Charity Majors has discussed the [Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/) for many years. As sage as her wisdom is, it's often hard to relate until you've lived it.
 
-This experience has proven to me that careers aren't linear. They oscillate.
+This experience has proven to me that careers aren't linear. They oscillate. You take a position of leadership for influence and people skills. You make individual contributions for clarity and sharpness. Neither of those is actually tied to a role.
 
-You move toward leadership for influence. You move back to individual contribution for clarity.
+Both skill sets are valid. Both skill sets matter.
 
-You move toward management to hone your people skills. You move back to coding to stay sharp.
+## In conclusion
 
-Both are valid. Both matter.
+To my friends who were made redundant from leadership roles or are simply considering a change of pace: I know that shift can feel like failure. But it isn't. It's a recalibration.
 
-To my friends who were made redundant from leadership roles this year: I know that shift can feel like failure. But it isn't. It's a recalibration.
-
-You're not going backwards. You're rediscovering what brought you here.
+You're not going backwards. You're rediscovering what brought you here. Sharpening the old tools to augment everything you learned at cruise altitude. You will be better for your experience.
 
 A hundred days in, I can say it plainly: I should have done this sooner.
