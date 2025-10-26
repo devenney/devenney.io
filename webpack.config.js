@@ -51,7 +51,10 @@ const blogPages = blogPosts.map((post) => {
     filename: `blog/${post.slug}.html`,
     template: "src/templates/blog-post.hbs",
     inject: false,
-    templateParameters: post,
+    templateParameters: {
+      ...post,
+      canonicalPath: `/blog/${post.slug}`,
+    },
   });
 });
 
@@ -98,13 +101,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       template: "src/templates/index.hbs",
-      templateParameters: {},
+      templateParameters: {
+        canonicalPath: "/",
+      },
     }),
     new HtmlWebpackPlugin({
       hash: true,
       filename: "privacy.html",
       template: "src/templates/privacy.hbs",
-      templateParameters: {},
+      templateParameters: {
+        canonicalPath: "/privacy",
+      },
     }),
     ...blogPages, // Generates blog post pages dynamically
     new HtmlWebpackPlugin({
@@ -113,6 +120,7 @@ module.exports = {
       inject: false,
       templateParameters: {
         blogPosts: blogPosts,
+        canonicalPath: "/blog/",
       },
     }),
     // Generate sitemap.xml after build
@@ -138,6 +146,21 @@ module.exports = {
   resolve: {
     alias: {
       handlebars: "handlebars/dist/handlebars.min.js",
+    },
+  },
+  devServer: {
+    historyApiFallback: {
+      rewrites: [
+        // mimic Cloudfront behaviour
+        {
+          from: /\$/,
+          to: (context) => context.parsedUrl.pathname + "index.html",
+        },
+        {
+          from: /^[^.]+$/,
+          to: (context) => context.parsedUrl.pathname + ".html",
+        },
+      ],
     },
   },
 };
