@@ -48,7 +48,7 @@ I'm not delegating problems anymore. I'm solving them. My code runs. And I still
 
 ## Rediscovering impact
 
-One thing I've learned at Approov is that focus scales. You can be lean and still serious. You can be efficient and still ambitious. You can do meaningful work without fifty people in the room.
+One thing I've learned at [Approov](https://approov.io) is that focus scales. You can be lean and still serious. You can be efficient and still ambitious. You can do meaningful work without fifty people in the room.
 
 When something breaks, you fix it. When something works, you build on it. Things happen for a reason, rather than everything happening because it's prescribed by the internal literature.
 
