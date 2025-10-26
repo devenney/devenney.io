@@ -30,7 +30,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: eu-west-1
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUHT_ID }}:role/GHADevenneyIO
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GHADevenneyIO
 
       - name: Publish to preview
         run: |
