@@ -7,35 +7,35 @@ on:
 
 permissions:
   contents: read
-  id-token: write  # OIDC
+  id-token: write # OIDC
 
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Use Node.js 18.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
 
-    - name: Build
-      run: |
-        npm install
-        npx webpack
+      - name: Build
+        run: |
+          npm install
+          npx webpack
 
-    - name: Configure AWS Credentials (OIDC)
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: eu-west-1
-        role-to-assume: arn:aws:iam::212595788859:role/GHADevenneyIO
+      - name: Configure AWS Credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-west-1
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUHT_ID }}:role/GHADevenneyIO
 
-    - name: Publish to actual
-      run: |
-        aws s3 sync dist s3://${{ secrets.ACTUAL_AWS_S3_BUCKET_NAME }}/
+      - name: Publish to actual
+        run: |
+          aws s3 sync dist s3://${{ secrets.ACTUAL_AWS_S3_BUCKET_NAME }}/
 
-    - name: Invalidate CloudFront
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.ACTUAL_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.ACTUAL_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
