@@ -24,11 +24,12 @@
     "acorn-import-assertions": "^1.9.0",
     "date-fns": "^4.1.0",
     "front-matter": "^4.0.2",
-    "fs-extra": "^11.3.0",
-    "glob": "^11.0.1",
+    "fs-extra": "^11.3.2",
+    "glob": "^11.0.3",
     "markdown-it": "^14.1.0",
     "prismjs": "^1.30.0",
     "purecss": "^3.0.0",
+    "sitemap-webpack-plugin": "^1.1.1",
     "webpack-dev-server": "^5.2.1"
   },
   "devDependencies": {
