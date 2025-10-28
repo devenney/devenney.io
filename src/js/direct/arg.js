@@ -2,6 +2,8 @@ let theFuture = "Geological Unmanned Terraforming System";
 let audio = new Audio('/assets/audio/megaman-royaltyfree.mp3');
 audio.volume = 0.1;
 
+let argEnabled = false;
+
 function initARG() {
     document.addEventListener('selectionchange', function() {
         selection = document.getSelection()
@@ -9,7 +11,8 @@ function initARG() {
         var selectedText = selection ? selection.toString() : null;
 
         // Warning for old browsers again: May want to polyfill https://caniuse.com/#search=includes
-        if (selectedText == theFuture) {
+        if (selectedText == theFuture && !argEnabled) {
+            argEnabled = true
             crtSwitch()
             theWillOfOne()
         }
