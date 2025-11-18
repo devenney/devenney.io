@@ -25,7 +25,7 @@
     "date-fns": "^4.1.0",
     "front-matter": "^4.0.2",
     "fs-extra": "^11.3.2",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "markdown-it": "^14.1.0",
     "prismjs": "^1.30.0",
     "purecss": "^3.0.0",
