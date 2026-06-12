@@ -10,8 +10,7 @@ function setTheme(theme) {
   }
 }
 
-const switchTheme = (event) => {
-  event.preventDefault();
+const switchTheme = () => {
   const theme = localStorage.getItem('theme');
   setTheme(theme === 'light' ? 'dark' : 'light');
 };

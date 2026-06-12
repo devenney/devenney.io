@@ -27,7 +27,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
   ogType="article"
 >
   <!-- BlogPosting JSON-LD — injected into Base's named head slot -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": title,

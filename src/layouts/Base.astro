@@ -54,7 +54,7 @@ const ogImage = 'https://devenney.io/assets/images/logo_sm.png';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- JSON-LD: Person -->
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -81,7 +81,7 @@ const ogImage = 'https://devenney.io/assets/images/logo_sm.png';
     </script>
 
     <!-- JSON-LD: WebSite -->
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -95,7 +95,7 @@ const ogImage = 'https://devenney.io/assets/images/logo_sm.png';
     </script>
 
     <!-- JSON-LD: WebPage (dynamic per page) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",
       "url": canonical,
@@ -121,8 +121,8 @@ const ogImage = 'https://devenney.io/assets/images/logo_sm.png';
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <slot />
-    <script src="/js/switch.js" defer></script>
-    <script src="/js/modal.js" defer></script>
-    <script src="/js/arg.js" defer></script>
+    <script is:inline src="/js/switch.js" defer></script>
+    <script is:inline src="/js/modal.js" defer></script>
+    <script is:inline src="/js/arg.js" defer></script>
   </body>
 </html>
