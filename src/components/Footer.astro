@@ -1,0 +1,72 @@
+---
+---
+
+<footer style="border-top: 1px solid var(--border); margin-top: 4rem;">
+  <div
+    style="max-width: var(--width-prose); margin: 0 auto; padding: 0.85rem 1.5rem; display: flex; justify-content: space-between; align-items: center;"
+  >
+    <!-- Easter egg trigger: double-click the city icon -->
+    <button
+      data-target="modal-easter-egg"
+      ondblclick="document.getElementById('modal-easter-egg').showModal()"
+      style="background: none; border: none; cursor: pointer; color: var(--text-subtle); font-size: 1rem; padding: 0;"
+      aria-label="Edinburgh (double-click for a secret)"
+      title="Edinburgh"
+    >🏙</button>
+
+    <span style="font-size: 0.65rem; color: var(--text-subtle);">
+      Code licensed <a href="https://github.com/devenney/devenney.io/blob/main/LICENSE" style="color: var(--text-muted);">MIT</a>
+    </span>
+
+    <div style="display: flex; gap: 0.75rem; align-items: center;">
+      <a href="/privacy" aria-label="Privacy policy" style="color: var(--text-subtle); font-size: 0.8rem;">🔑</a>
+      <abbr id="lightswitch" title="Cast: Light (Evocation)" style="cursor: pointer; text-decoration: none;">
+        <button
+          onclick="switchTheme(event)"
+          style="background: none; border: none; cursor: pointer; color: var(--text-subtle); font-size: 0.8rem; padding: 0;"
+          aria-label="Toggle light/dark theme"
+        >💡</button>
+      </abbr>
+    </div>
+  </div>
+</footer>
+
+<!-- Easter egg modal — content is exact, do not modify -->
+<dialog id="modal-easter-egg" aria-labelledby="easter-egg-title">
+  <p><strong id="easter-egg-title">My dearest Erin,</strong></p>
+  <p></p>
+  <p>
+    Tonight will mark the end of a life long dream of mine.
+    The completion of a labour I began as a child, even before I knew the words for it.
+    Before I knew the ways to accomplish such a task.
+    Even now my heart is heavy with dread;
+    I fear I've built a great and powerful evil.
+    Or rather, together, Albert and I have built it.
+    I know that I am to blame.
+    I allowed Albert to persuade me to change the designs.
+    I allowed this perversion of my course.
+  </p>
+  <p>
+    This new machine that we've built is unlike any I ever imagined.
+    It looks... like a man.
+    A lifeless steel man.
+    Albert convinced me that even with the new <strong>Geological Unmanned Terraforming System</strong> we designed, the task of extracting the ore is still too dangerous for a human.
+    He plans to completely replace human workers in the mining sector.
+    The idea of displacing so many men... the annihilation of countless jobs in the name of safety seems an unbalanced trade off.
+    What is worse, the latest prototypes have been revised to carry small firearms.
+  </p>
+  <p>
+    Erin, I fear that I have put you and this entire city in danger.
+    I will speak to him tonight on the matter.
+    Perhaps I can persuade him to scrap the whole project.
+    In the meantime, please be careful. This world is getting darker all the time.
+  </p>
+  <p>
+    I weep at the thought of something terrible happening to you.
+    I could not bear it.
+  </p>
+  <p></p>
+  <p>
+    All my love,<br />Brendan
+  </p>
+</dialog>
