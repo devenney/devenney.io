@@ -30,15 +30,14 @@ function getSelectedText() {
 }
 
 function theWillOfOne() {
-    banner = document.getElementById("upper-nav-middle")
+    var banner = document.getElementById("upper-nav-middle")
+    if (!banner) return;
 
-    let img = document.createElement("img")
+    var img = document.createElement("img")
     img.setAttribute("src", "/assets/images/mm.png")
     img.setAttribute("height", 32)
     img.setAttribute("width", 32)
-
     img.setAttribute("onClick", "protomanWasBorn()")
-
     banner.append(img)
 }
 
@@ -54,3 +53,5 @@ function protomanWasBorn() {
 function crtSwitch() {
     document.body.className += "crt";
 }
+
+initARG();
