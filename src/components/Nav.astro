@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'about' | 'blog';
+  activePage?: 'home' | 'blog';
 }
 const { activePage } = Astro.props;
 ---
@@ -23,11 +23,6 @@ const { activePage } = Astro.props;
 
     <div style="display: flex; gap: 1.5rem; align-items: center;">
       <a
-        href="/about"
-        style={`font-size: 0.7rem; letter-spacing: 0.05em; color: ${activePage === 'about' ? 'var(--accent)' : 'var(--text-muted)'};`}
-      >about</a>
-
-      <a
         href="/"
         style={`font-size: 0.7rem; letter-spacing: 0.05em; color: ${activePage === 'home' ? 'var(--accent)' : 'var(--text-muted)'};`}
       >work</a>
@@ -43,7 +38,7 @@ const { activePage } = Astro.props;
           style="font-size: 0.7rem; letter-spacing: 0.05em; color: var(--text-muted); cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.35rem;"
           aria-label="Bag of Holding — more links"
         >
-          <span aria-hidden="true">✦</span> Bag of Holding
+          Bag of Holding
         </summary>
         <ul
           style="position: absolute; right: 0; top: calc(100% + 0.5rem); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; list-style: none; margin: 0; padding: 0.35rem 0; min-width: 160px; z-index: 20;"

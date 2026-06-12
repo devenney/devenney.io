@@ -7,7 +7,6 @@ delivering SEPA Instant, Credit Transfer, Direct Debit, and SWIFT with Goldman S
 
 ## Links
 - Home: https://devenney.io
-- About / Now: https://devenney.io/about
 - Blog: https://devenney.io/blog
 - CV: https://github.com/devenney/cv/releases/latest
 - GitHub: https://github.com/devenney
