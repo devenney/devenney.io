@@ -1,0 +1,100 @@
+---
+import { execSync } from 'child_process';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+let lastUpdated = '';
+try {
+  lastUpdated = execSync(
+    'git log --follow -1 --format=%as -- src/pages/about.astro'
+  ).toString().trim();
+} catch {
+  lastUpdated = '';
+}
+
+function formatLastUpdated(dateStr: string): string {
+  if (!dateStr) return '';
+  return new Intl.DateTimeFormat('en-GB', {
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(dateStr));
+}
+---
+
+<Base
+  title="About — Brendan Devenney"
+  description="Brendan Devenney — Staff Software Engineer in Edinburgh, Scotland. Building security products, running D&D campaigns, playing games."
+  canonicalPath="/about"
+>
+  <Nav activePage="about" />
+
+  <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 2.5rem 1.5rem 0;">
+
+    <section aria-labelledby="about-heading">
+      <p style="color: var(--text-subtle); font-size: 0.6rem; letter-spacing: 0.12em; margin-bottom: 1.25rem;">
+        ── ABOUT ────────────────────────
+      </p>
+      <h1 id="about-heading" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">About Brendan Devenney</h1>
+
+      <!--
+        CONTENT NEEDED: Write your bio here.
+        Suggested structure: who you are + what you've done + what matters to you outside work.
+        Keep it first-person, direct, not a LinkedIn summary.
+        3-4 short paragraphs, each as a <p> with style="color: var(--text-2); font-size: 0.875rem; line-height: 1.85; margin-bottom: 1rem;"
+      -->
+
+      <nav aria-label="External profiles" style="display: flex; gap: 1.25rem; margin-top: 1rem; flex-wrap: wrap;">
+        <a href="https://github.com/devenney" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: var(--accent);">↗ github</a>
+        <a href="https://uk.linkedin.com/in/brendan-devenney" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: var(--text-muted);">↗ linkedin</a>
+        <a href="https://github.com/devenney/cv/releases/latest" target="_blank" rel="noopener noreferrer" style="font-size: 0.72rem; color: var(--text-muted);">↗ cv</a>
+      </nav>
+    </section>
+
+    <section aria-labelledby="now-heading" style="margin-top: 2.5rem;">
+      <p style="color: var(--text-subtle); font-size: 0.6rem; letter-spacing: 0.12em; margin-bottom: 1.25rem;">
+        ── NOW ──────────────────────────
+      </p>
+      <h2 id="now-heading" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">Now</h2>
+
+      <dl style="display: flex; flex-direction: column; gap: 0.85rem;">
+        <div style="display: flex; gap: 1rem;">
+          <dt style="font-size: 0.65rem; color: var(--text-muted); min-width: 4.5rem; padding-top: 0.1rem;">work</dt>
+          <dd style="font-size: 0.78rem; color: var(--text-3); line-height: 1.6; margin: 0;">
+            <!-- CONTENT NEEDED: what are you focused on at work right now? -->
+          </dd>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <dt style="font-size: 0.65rem; color: var(--text-muted); min-width: 4.5rem; padding-top: 0.1rem;">playing</dt>
+          <dd style="font-size: 0.78rem; color: var(--text-3); line-height: 1.6; margin: 0;">
+            <span style="color: var(--text-2);">Elden Ring Nightreign</span> and
+            <span style="color: var(--text-2);">WoW: Midnight</span>
+            <span style="font-size: 0.68rem; color: var(--text-muted); display: block; margin-top: 0.15rem;">AOTC two expansions running</span>
+          </dd>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <dt style="font-size: 0.65rem; color: var(--text-muted); min-width: 4.5rem; padding-top: 0.1rem;">running</dt>
+          <dd style="font-size: 0.78rem; color: var(--text-3); line-height: 1.6; margin: 0;">
+            <!-- CONTENT NEEDED: describe the D&D campaign -->
+          </dd>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+          <dt style="font-size: 0.65rem; color: var(--text-muted); min-width: 4.5rem; padding-top: 0.1rem;">location</dt>
+          <dd style="font-size: 0.78rem; color: var(--text-3); margin: 0;">Edinburgh, Scotland</dd>
+        </div>
+      </dl>
+
+      {lastUpdated && (
+        <p style="margin-top: 1.25rem; font-size: 0.62rem; color: var(--text-subtle);">
+          Last updated {formatLastUpdated(lastUpdated)}
+        </p>
+      )}
+    </section>
+
+  </main>
+
+  <Footer />
+</Base>
