@@ -1,0 +1,3 @@
+# Preserve old .html extension URLs that may be indexed
+/privacy.html  /privacy  301
+/blog/index.html  /blog  301
