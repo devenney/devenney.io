@@ -30,15 +30,26 @@ function getSelectedText() {
 }
 
 function theWillOfOne() {
-    var banner = document.getElementById("upper-nav-middle")
-    if (!banner) return;
+    var hero = document.querySelector('header[role="banner"]');
+    if (!hero) return;
 
-    var img = document.createElement("img")
-    img.setAttribute("src", "/assets/images/mm.png")
-    img.setAttribute("height", 32)
-    img.setAttribute("width", 32)
-    img.setAttribute("onClick", "protomanWasBorn()")
-    banner.append(img)
+    var btn = document.createElement('button');
+    btn.textContent = '> megaman_';
+    btn.setAttribute('aria-label', 'Play Mega Man theme');
+    btn.style.cssText = [
+        'display: block',
+        'margin-top: 1.5rem',
+        'background: none',
+        'border: none',
+        'cursor: pointer',
+        'color: var(--accent)',
+        'font-family: var(--font-mono)',
+        'font-size: 0.72rem',
+        'letter-spacing: 0.05em',
+        'padding: 0',
+    ].join(';');
+    btn.addEventListener('click', protomanWasBorn);
+    hero.append(btn);
 }
 
 function protomanWasBorn() {
