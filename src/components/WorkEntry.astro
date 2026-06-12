@@ -1,0 +1,41 @@
+---
+interface Props {
+  years: string;
+  title: string;
+  company: string;
+  companyUrl?: string;
+  description?: string;
+  muted?: boolean;
+}
+const { years, title, company, companyUrl, description, muted = false } = Astro.props;
+---
+
+<div style={`display: flex; gap: 1rem; align-items: baseline; margin-bottom: ${description ? '0.9rem' : '0.5rem'};`}>
+  <span style={`font-size: 0.65rem; white-space: nowrap; min-width: 3.5rem; color: ${muted ? 'var(--text-subtle)' : 'var(--text-muted)'};`}>
+    {years}
+  </span>
+  <div>
+    <span style={`font-size: ${muted ? '0.72rem' : '0.78rem'}; color: ${muted ? 'var(--text-muted)' : 'var(--text-3)'};`}>
+      {title}
+    </span>
+    {companyUrl ? (
+      <a
+        href={companyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={`font-size: ${muted ? '0.68rem' : '0.72rem'}; color: var(--text-subtle); margin-left: 0.3rem;`}
+      >
+        &middot; {company}
+      </a>
+    ) : (
+      <span style={`font-size: ${muted ? '0.68rem' : '0.72rem'}; color: var(--text-subtle); margin-left: 0.3rem;`}>
+        &middot; {company}
+      </span>
+    )}
+    {description && (
+      <p style="font-size: 0.68rem; color: var(--text-muted); margin: 0.15rem 0 0; line-height: 1.6;">
+        {description}
+      </p>
+    )}
+  </div>
+</div>
