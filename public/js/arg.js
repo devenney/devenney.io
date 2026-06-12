@@ -6,7 +6,6 @@ audio.volume = 0.1;
 audio.loop = true;
 
 var argEnabled = false;
-var megamanStarted = false;
 
 function initARG() {
     document.addEventListener('selectionchange', function () {
@@ -15,38 +14,14 @@ function initARG() {
         if (text === theFuture && !argEnabled) {
             argEnabled = true;
             crtSwitch();
-            theWillOfOne();
+            audio.play();
+            startMegamanRunner();
         }
     });
 }
 
 function crtSwitch() {
     document.body.classList.add('crt');
-}
-
-function theWillOfOne() {
-    var hero = document.querySelector('header[role="banner"]');
-    if (!hero) return;
-    var btn = document.createElement('button');
-    btn.textContent = '> megaman_';
-    btn.setAttribute('aria-label', 'Play Mega Man theme');
-    btn.style.cssText = 'display:block;margin-top:1.5rem;background:none;border:none;' +
-        'cursor:pointer;color:var(--accent);font-family:var(--font-mono);' +
-        'font-size:0.72rem;letter-spacing:0.05em;padding:0';
-    btn.addEventListener('click', protomanWasBorn);
-    hero.append(btn);
-}
-
-function protomanWasBorn() {
-    if (audio.paused) {
-        audio.play();
-        if (!megamanStarted) {
-            megamanStarted = true;
-            startMegamanRunner();
-        }
-    } else {
-        audio.pause();
-    }
 }
 
 // ── Canvas Megaman ────────────────────────────────────────────────────────────
