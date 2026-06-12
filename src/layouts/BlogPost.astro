@@ -1,0 +1,116 @@
+---
+import Base from './Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: string;
+  author: string;
+  slug: string;
+}
+
+const { title, description, date, author, slug } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date(date));
+---
+
+<Base
+  title={`${title} — Brendan Devenney`}
+  description={description}
+  canonicalPath={`/blog/${slug}`}
+  ogType="article"
+>
+  <!-- BlogPosting JSON-LD — injected into Base's named head slot -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "datePublished": date,
+    "author": {
+      "@type": "Person",
+      "name": author,
+      "url": "https://devenney.io"
+    },
+    "url": `https://devenney.io/blog/${slug}`,
+    "description": description ?? ''
+  })} slot="head" />
+
+  <Nav activePage="blog" />
+
+  <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 2.5rem 1.5rem 0;">
+    <p style="color: var(--text-muted); font-size: 0.65rem; margin-bottom: 0.5rem;">{formattedDate}</p>
+    <h1 style="color: var(--text-1); font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 700; line-height: 1.25; margin: 0 0 1.5rem;">{title}</h1>
+    <p style="margin-bottom: 1.75rem;">
+      <a href="/blog" style="font-size: 0.68rem; color: var(--text-muted);">← back to writing</a>
+    </p>
+
+    <article
+      style="font-family: var(--font-serif); color: var(--text-2); font-size: 1rem; line-height: 1.85;"
+      class="prose"
+    >
+      <slot />
+    </article>
+  </main>
+
+  <Footer />
+</Base>
+
+<style is:global>
+  article.prose h2,
+  article.prose h3 {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin: 2rem 0 0.75rem;
+  }
+  article.prose h2 { font-size: 1.15rem; }
+  article.prose h3 { font-size: 1rem; }
+  article.prose p { margin-bottom: 1.25rem; }
+  article.prose a { color: var(--accent); }
+  article.prose a:hover { color: var(--accent-h); }
+  article.prose code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    color: var(--text-1);
+  }
+  article.prose pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+  }
+  article.prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+  article.prose blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    color: var(--text-muted);
+    margin: 1.5rem 0;
+  }
+  article.prose ul,
+  article.prose ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  article.prose li { margin-bottom: 0.4rem; }
+  article.prose hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+</style>
