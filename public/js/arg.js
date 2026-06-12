@@ -10,8 +10,7 @@ var argEnabled = false;
 function initARG() {
     document.addEventListener('selectionchange', function () {
         var sel = document.getSelection();
-        var text = sel ? sel.toString() : '';
-        if (text === theFuture && !argEnabled) {
+        if (sel && sel.toString() === theFuture && !argEnabled) {
             argEnabled = true;
             crtSwitch();
             audio.play();
@@ -24,108 +23,44 @@ function crtSwitch() {
     document.body.classList.add('crt');
 }
 
-// ── Canvas Megaman ────────────────────────────────────────────────────────────
-
-var SC = 3;  // 1 sprite pixel → 3×3 canvas pixels
-var SW = 12; // sprite width (pixels)
-var SH = 13; // sprite height (pixels)
-
-var C = {
-    b: '#4e9bde', // blue  (helmet, body)
-    l: '#74c0f0', // light blue (highlights, buster)
-    d: '#1a5ca8', // dark blue  (legs, shadows)
-    f: '#f5dcb0', // face / skin
+// ── Megaman Canvas Runner ─────────────────────────────────────────────────────
+//
+// Sprite sheet coords [sx, sy, sw, sh] — extracted from mm-sprites.png
+// Assembled (run) sprites: sy=21, sh=24
+// Shooting sprites:        sy=78, sh=25
+//
+var SP = {
+    run0:      [55,  21, 24, 24],  // walk A
+    run1:      [87,  21, 32, 24],  // walk B (wider — mid-stride)
+    run2:      [120, 21, 24, 24],  // walk C
+    run3:      [145, 21, 24, 24],  // walk D
+    jump:      [174, 21, 32, 24],  // jump
+    shoot0:    [38,  78, 32, 25],  // shoot + walk A
+    shoot1:    [71,  78, 32, 25],  // shoot + walk B
+    shoot2:    [104, 78, 32, 25],  // shoot + walk C
+    shoot3:    [141, 78, 32, 25],  // shoot + walk D
+    shootJump: [283, 78, 32, 25],  // shoot + jump
 };
 
-// Shared head + torso — rows 0–8, facing right
-var HEAD = [
-    // helmet
-    [2,0,'b'],[3,0,'b'],[4,0,'b'],[5,0,'b'],[6,0,'b'],[7,0,'b'],
-    [1,1,'b'],[2,1,'b'],[3,1,'b'],[4,1,'b'],[5,1,'b'],[6,1,'b'],[7,1,'b'],[8,1,'b'],
-    // visor + face
-    [2,2,'l'],[3,2,'l'],[4,2,'f'],[5,2,'f'],[6,2,'l'],[7,2,'b'],
-    [2,3,'l'],[3,3,'f'],[4,3,'f'],[5,3,'f'],[6,3,'l'],[7,3,'b'],
-    [3,4,'f'],[4,4,'f'],[5,4,'f'],[6,4,'f'],
-    // neck
-    [3,5,'f'],[4,5,'f'],
-    // torso
-    [1,6,'b'],[2,6,'b'],[3,6,'b'],[4,6,'b'],[5,6,'b'],[6,6,'b'],[7,6,'b'],[8,6,'b'],
-    [1,7,'b'],[2,7,'l'],[3,7,'b'],[4,7,'b'],[5,7,'b'],[6,7,'b'],[7,7,'l'],[8,7,'b'],
-    [2,8,'b'],[3,8,'b'],[4,8,'b'],[5,8,'b'],[6,8,'b'],[7,8,'b'],
-];
-
-// Buster arm — extends right side of torso when shooting (cols 8–11)
-var BUSTER = [
-    [8,6,'b'],[9,6,'b'],
-    [8,7,'b'],[9,7,'b'],[10,7,'l'],[11,7,'l'],
-    [9,8,'b'],[10,8,'b'],
-];
-
-var LEGS = {
-    // right foot forward, left foot trailing
-    run0: [
-        [2,9,'d'],[3,9,'d'],
-        [1,10,'d'],[2,10,'d'],
-        [0,11,'d'],[1,11,'d'],[2,11,'d'],
-        [6,9,'d'],[7,9,'d'],
-        [6,10,'d'],[7,10,'d'],
-        [6,11,'d'],[7,11,'d'],[8,11,'d'],
-    ],
-    // left foot forward, right foot trailing
-    run1: [
-        [3,9,'d'],[4,9,'d'],
-        [3,10,'d'],[4,10,'d'],
-        [2,11,'d'],[3,11,'d'],[4,11,'d'],
-        [6,9,'d'],[7,9,'d'],
-        [7,10,'d'],[8,10,'d'],
-        [7,11,'d'],[8,11,'d'],[9,11,'d'],
-    ],
-    // legs together and slightly drawn up
-    jump: [
-        [2,9,'d'],[3,9,'d'],[4,9,'d'],[5,9,'d'],[6,9,'d'],[7,9,'d'],
-        [3,10,'d'],[4,10,'d'],[5,10,'d'],[6,10,'d'],
-        [3,11,'d'],[4,11,'d'],[5,11,'d'],[6,11,'d'],
-    ],
-};
-
-function buildFrame(legs, shoot) {
-    return HEAD.concat(shoot ? BUSTER : []).concat(legs);
-}
-
-var FRAMES = {
-    run0:  buildFrame(LEGS.run0, false),
-    run1:  buildFrame(LEGS.run1, false),
-    jump:  buildFrame(LEGS.jump, false),
-    run0s: buildFrame(LEGS.run0, true),
-    run1s: buildFrame(LEGS.run1, true),
-    jumps: buildFrame(LEGS.jump, true),
-};
-
-function drawSprite(ctx, pixels, x, y, dir) {
-    ctx.save();
-    ctx.translate(x, y);
-    if (dir < 0) {
-        // mirror horizontally around sprite centre
-        ctx.translate(SW * SC, 0);
-        ctx.scale(-1, 1);
-    }
-    for (var i = 0; i < pixels.length; i++) {
-        var p = pixels[i];
-        ctx.fillStyle = C[p[2]];
-        ctx.fillRect(p[0] * SC, p[1] * SC, SC, SC);
-    }
-    ctx.restore();
-}
+var RUN_CYCLE   = ['run0',   'run1',   'run2',   'run3'];
+var SHOOT_CYCLE = ['shoot0', 'shoot1', 'shoot2', 'shoot3'];
+var SC = 3;  // scale: 1 sprite pixel → 3×3 canvas pixels
 
 function startMegamanRunner() {
+    var sheet = new Image();
+    sheet.onload = function () { launchRunner(sheet); };
+    sheet.src = '/assets/images/mm-sprites.png';
+}
+
+function launchRunner(sheet) {
     var canvas = document.createElement('canvas');
     canvas.id = 'arg-canvas';
-    canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:100';
+    canvas.style.cssText =
+        'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:100';
     document.body.appendChild(canvas);
 
     var ctx = canvas.getContext('2d');
-    var CW = SW * SC; // character width  = 36px
-    var CH = SH * SC; // character height = 39px
+    ctx.imageSmoothingEnabled = false;  // keep pixels crisp
 
     function resize() {
         canvas.width  = window.innerWidth;
@@ -134,16 +69,16 @@ function startMegamanRunner() {
     resize();
     window.addEventListener('resize', resize);
 
-    var ground = function () { return canvas.height - CH - 8; };
+    var ground = function () { return canvas.height - 24 * SC - 12; };
 
     var mm = {
-        x:          -CW,
+        x:          -40,
         y:          ground(),
         vy:         0,
-        dir:        1,
-        state:      'run',  // 'run' | 'jump'
+        dir:        1,      // 1 = right, -1 = left
+        jumping:    false,
         shooting:   false,
-        fIdx:       0,
+        frameIdx:   0,      // 0..3, indexes into RUN/SHOOT_CYCLE
         fTimer:     0,
         jumpTimer:  60  + Math.floor(Math.random() * 90),
         shootTimer: 150 + Math.floor(Math.random() * 150),
@@ -153,46 +88,69 @@ function startMegamanRunner() {
     var projectiles = [];
 
     function fireShot() {
-        var busterTipX = mm.dir > 0 ? mm.x + CW + 2 : mm.x - 10;
-        var busterTipY = mm.y + 7 * SC;
-        projectiles.push({ x: busterTipX, y: busterTipY, vx: 7 * mm.dir });
+        var key = mm.shooting ? SHOOT_CYCLE[mm.frameIdx] : RUN_CYCLE[mm.frameIdx];
+        var spW = SP[key][2] * SC;
+        // Sprites face left by default — right-facing (dir=1) is flipped
+        // so buster tip is at right edge when dir=1, left edge when dir=-1
+        var tipX = mm.dir > 0 ? mm.x + spW + 2 : mm.x - 10;
+        var tipY = mm.y + 8 * SC;
+        projectiles.push({ x: tipX, y: tipY, vx: 8 * mm.dir });
+    }
+
+    function drawSprite(key, x, y, dir) {
+        var s = SP[key];
+        var dw = s[2] * SC, dh = s[3] * SC;
+        ctx.save();
+        // Sprites in the sheet face LEFT; flip horizontally for right-facing
+        if (dir > 0) {
+            ctx.translate(x + dw, y);
+            ctx.scale(-1, 1);
+            ctx.drawImage(sheet, s[0], s[1], s[2], s[3], 0, 0, dw, dh);
+        } else {
+            ctx.drawImage(sheet, s[0], s[1], s[2], s[3], x, y, dw, dh);
+        }
+        ctx.restore();
     }
 
     function tick() {
+        if (canvas.width  !== window.innerWidth)  canvas.width  = window.innerWidth;
+        if (canvas.height !== window.innerHeight)  canvas.height = window.innerHeight;
+
         var g = ground();
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         var active = !audio.paused;
 
         if (active) {
+            var curKey = mm.shooting ? SHOOT_CYCLE[mm.frameIdx] : RUN_CYCLE[mm.frameIdx];
+            var spW = SP[curKey][2] * SC;
+
             // Horizontal movement
             mm.x += 2.5 * mm.dir;
-
-            // Bounce at edges
-            if (mm.x + CW > canvas.width && mm.dir > 0) mm.dir = -1;
+            if (mm.x + spW > canvas.width && mm.dir > 0) mm.dir = -1;
             if (mm.x < 0              && mm.dir < 0) mm.dir =  1;
 
-            // Gravity + ground collision
+            // Gravity
             mm.vy += 0.55;
             mm.y  += mm.vy;
             if (mm.y >= g) {
-                mm.y  = g;
-                mm.vy = 0;
-                if (mm.state === 'jump') mm.state = 'run';
+                mm.y     = g;
+                mm.vy    = 0;
+                mm.jumping = false;
             }
 
-            // Jump timer
-            if (mm.state === 'run' && --mm.jumpTimer <= 0) {
-                mm.vy        = -11;
-                mm.state     = 'jump';
+            // Jump
+            if (!mm.jumping && --mm.jumpTimer <= 0) {
+                mm.vy      = -11;
+                mm.jumping = true;
                 mm.jumpTimer = 90 + Math.floor(Math.random() * 90);
             }
 
-            // Shoot timer
+            // Shoot
             if (!mm.shooting) {
                 if (--mm.shootTimer <= 0) {
-                    mm.shooting   = true;
-                    mm.shootDur   = 50;
+                    mm.shooting = true;
+                    mm.shootDur = 50;
                     fireShot();
                 }
             } else {
@@ -202,29 +160,35 @@ function startMegamanRunner() {
                 }
             }
 
-            // Animate legs
-            if (++mm.fTimer >= 8) {
-                mm.fTimer = 0;
-                mm.fIdx   = 1 - mm.fIdx;
+            // Advance run frame (only on ground)
+            if (!mm.jumping && ++mm.fTimer >= 8) {
+                mm.fTimer  = 0;
+                mm.frameIdx = (mm.frameIdx + 1) % 4;
             }
         }
 
         // Resolve frame key
-        var fKey;
-        if (mm.state === 'jump') {
-            fKey = mm.shooting ? 'jumps' : 'jump';
+        var frameKey;
+        if (mm.jumping) {
+            frameKey = mm.shooting ? 'shootJump' : 'jump';
         } else {
-            fKey = (mm.fIdx === 0 ? 'run0' : 'run1') + (mm.shooting ? 's' : '');
+            frameKey = mm.shooting ? SHOOT_CYCLE[mm.frameIdx] : RUN_CYCLE[mm.frameIdx];
         }
 
-        drawSprite(ctx, FRAMES[fKey], Math.round(mm.x), Math.round(mm.y), mm.dir);
+        drawSprite(frameKey, Math.round(mm.x), Math.round(mm.y), mm.dir);
 
-        // Projectiles
-        ctx.fillStyle = '#a0d8ff';
+        // Buster projectiles — white core, cyan glow
         projectiles = projectiles.filter(function (p) {
             p.x += p.vx;
-            if (p.x < -16 || p.x > canvas.width + 16) return false;
-            ctx.fillRect(Math.round(p.x), Math.round(p.y), 8, 4);
+            if (p.x < -20 || p.x > canvas.width + 20) return false;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = '#00E8D8';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fill();
             return true;
         });
 
