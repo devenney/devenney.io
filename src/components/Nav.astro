@@ -1,0 +1,75 @@
+---
+interface Props {
+  activePage?: 'home' | 'about' | 'blog';
+}
+const { activePage } = Astro.props;
+---
+
+<nav
+  class="sticky top-0 z-10"
+  style="background: var(--surface); border-bottom: 1px solid var(--border);"
+  aria-label="Main navigation"
+>
+  <div
+    style="max-width: var(--width-prose); margin: 0 auto; padding: 0.5rem 1.5rem; display: flex; justify-content: space-between; align-items: center;"
+  >
+    <a
+      href="/"
+      style="color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;"
+      aria-label="Home"
+    >
+      &gt; bd<span class="blink" aria-hidden="true">_</span>
+    </a>
+
+    <div style="display: flex; gap: 1.5rem; align-items: center;">
+      <a
+        href="/about"
+        style={`font-size: 0.7rem; letter-spacing: 0.05em; color: ${activePage === 'about' ? 'var(--accent)' : 'var(--text-muted)'};`}
+      >about</a>
+
+      <a
+        href="/"
+        style={`font-size: 0.7rem; letter-spacing: 0.05em; color: ${activePage === 'home' ? 'var(--accent)' : 'var(--text-muted)'};`}
+      >work</a>
+
+      <a
+        href="/blog"
+        style={`font-size: 0.7rem; letter-spacing: 0.05em; color: ${activePage === 'blog' ? 'var(--accent)' : 'var(--text-muted)'};`}
+      >blog</a>
+
+      <!-- Bag of Holding dropdown -->
+      <details style="position: relative;">
+        <summary
+          style="font-size: 0.7rem; letter-spacing: 0.05em; color: var(--text-muted); cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.35rem;"
+          aria-label="Bag of Holding — more links"
+        >
+          <span aria-hidden="true">✦</span> Bag of Holding
+        </summary>
+        <ul
+          style="position: absolute; right: 0; top: calc(100% + 0.5rem); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; list-style: none; margin: 0; padding: 0.35rem 0; min-width: 160px; z-index: 20;"
+        >
+          <li>
+            <a href="/blog" style="display: block; padding: 0.4rem 0.9rem; font-size: 0.7rem; color: var(--text-3);">
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/devenney/cv/releases/latest" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.4rem 0.9rem; font-size: 0.7rem; color: var(--text-3);">
+              CV ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/devenney" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.4rem 0.9rem; font-size: 0.7rem; color: var(--text-3);">
+              GitHub ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://uk.linkedin.com/in/brendan-devenney" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.4rem 0.9rem; font-size: 0.7rem; color: var(--text-3);">
+              LinkedIn ↗
+            </a>
+          </li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</nav>
