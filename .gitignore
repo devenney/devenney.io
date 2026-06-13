@@ -1,3 +1,5 @@
 .well-known
 dist/
 node_modules/
+.astro/
+docs/superpowers/

@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+function formatDate(dateStr: string): string {
+  return new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(dateStr));
+}
+---
+
+<Base
+  title="Writing — Brendan Devenney"
+  description="Writing by Brendan Devenney on software engineering, leadership, and more."
+  canonicalPath="/blog"
+>
+  <Nav activePage="blog" />
+
+  <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 2.5rem 1.5rem 0;">
+    <p style="color: var(--text-subtle); font-size: 0.75rem; letter-spacing: 0.12em; margin-bottom: 1.5rem;">
+      WRITING
+    </p>
+
+    <ul style="list-style: none; margin: 0; padding: 0;" role="list">
+      {posts.map((post) => (
+        <li style="border-bottom: 1px solid var(--border);">
+          <a
+            href={`/blog/${post.slug}`}
+            style="display: flex; justify-content: space-between; align-items: baseline; padding: 0.9rem 0; text-decoration: none; color: inherit;"
+          >
+            <span>
+              <span style="font-size: 0.82rem; color: var(--text-2); display: block;">
+                {post.data.title}
+              </span>
+              {post.data.description && (
+                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.2rem;">
+                  {post.data.description}
+                </span>
+              )}
+              <span style="font-size: 0.75rem; color: var(--text-subtle); display: block; margin-top: 0.2rem;">
+                {formatDate(post.data.date)}
+              </span>
+            </span>
+            <span style="color: var(--accent); font-size: 0.8rem; margin-left: 1rem; flex-shrink: 0;">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <p style="margin-top: 1.5rem; font-size: 0.75rem;">
+      <a href="/rss.xml" style="color: var(--text-muted);">↗ RSS feed</a>
+    </p>
+  </main>
+
+  <Footer />
+</Base>

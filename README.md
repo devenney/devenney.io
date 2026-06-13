@@ -2,36 +2,69 @@
 
 The public website code for https://devenney.io.
 
+Built with [Astro 5](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and deployed via [Cloudflare Pages](https://pages.cloudflare.com).
+
 ## Setup
 
-This project requires Node. It is recommended that you install the latest LTS release. Beyond this, the project is self-contained.
+Requires Node 20+.
 
 ```bash
-# Install packages
 npm install
-
-# Build distribution
-npm run build
 ```
 
 ## Local Development
 
-To serve the code locally, the project uses `webpack-dev-server`. A script is provided for convenience:
-
 ```bash
-npm run local
+npm run dev
 ```
 
-The hot reloaded code should then be available at http://localhost:8000.
+Available at http://localhost:4321 with hot reload.
+
+## Build
+
+```bash
+npm run build
+```
+
+Output is written to `dist/`. Cloudflare Pages runs this automatically on every push to `main`.
+
+## Type Checking
+
+```bash
+npm run check
+```
 
 ## Blog Posts
 
-Blog posts are held in `./src/content/blog/`.
+Blog posts live in `src/content/blog/`.
 
-The following YAML frontmatter is required for each post:
+Required frontmatter:
 
-- `title`: The short title of the post.
-- `description`: A synopsis of the post. This will be displayed on the blog listing page.
-- `date`: The ISO8601 publication date.
+```yaml
+title: Post title
+description: Short synopsis shown on the blog listing page.
+date: 2025-01-01  # ISO 8601
+author: Brendan Devenney
+```
 
-File names should be in the format `YYYY-MM-DD-short-description.md`.
+File names: `YYYY-MM-DD-short-description.md`.
+
+## Credits
+
+### Sprite sheet
+
+**Mega Man (NES)** — ripped by [MisterMike](https://www.spriters-resource.com/profile/MisterMike/) and hosted on [The Spriters Resource](https://www.spriters-resource.com). Used under The Spriters Resource's standard non-commercial fan-use terms.
+
+### Music
+
+**"No Copyright Music Mega Man opening Theme"** — [Blinding Beats](https://www.youtube.com/watch?v=VtNx8nIrUL4) (YouTube: @blindingbeats3299, 2020). Published as no-copyright/royalty-free music.
+
+### Libraries and tooling
+
+| Library | Licence |
+|---|---|
+| [Astro](https://astro.build) | MIT |
+| [Tailwind CSS](https://tailwindcss.com) | MIT |
+| [astro-icon](https://github.com/natemoo-re/astro-icon) | MIT |
+| [Font Awesome 6](https://fontawesome.com) (icons via Iconify) | CC BY 4.0 (icons), SIL OFL (fonts) |
+| [Geist Mono](https://vercel.com/font) | SIL OFL |

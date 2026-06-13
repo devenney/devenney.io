@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import TerminalBlock from '../components/TerminalBlock.astro';
+import WorkEntry from '../components/WorkEntry.astro';
+---
+
+<Base
+  title="Brendan Devenney — Staff Software Engineer, Edinburgh"
+  description="Brendan Devenney, a Staff Software Engineer based in Edinburgh, Scotland. Building security products at Approov."
+  canonicalPath="/"
+>
+  <Hero />
+  <Nav activePage="home" />
+
+  <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 2rem 1.5rem 0;">
+    <section id="work" aria-labelledby="work-heading">
+      <TerminalBlock label="CURRENT">
+        <h2
+          id="work-heading"
+          style="font-size: 0.95rem; font-weight: 600; color: var(--text-1); margin: 0 0 0.15rem;"
+        >
+          Staff Software Engineer
+        </h2>
+        <a
+          href="https://approov.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="font-size: 0.78rem; color: var(--accent); text-decoration: underline; text-underline-offset: 2px;"
+        >Approov</a>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0.4rem 0 0; line-height: 1.6;">
+          Protecting leading brands with state-of-the-art mobile security solutions.
+        </p>
+      </TerminalBlock>
+
+      <section aria-labelledby="previous-heading" style="margin-top: 1.5rem;">
+        <p style="color: var(--text-subtle); font-size: 0.75rem; letter-spacing: 0.12em; margin-bottom: 1rem;">
+          PREVIOUSLY
+        </p>
+        <h3 id="previous-heading" class="sr-only">Previous roles</h3>
+
+        <WorkEntry
+          years="2023–25"
+          title="Head of Engineering (European Payments)"
+          company="Form3"
+          companyUrl="https://form3.tech"
+          description="Delivering SEPA Instant, Credit Transfer, and Direct Debit at scale. Empowering household brands like Klarna."
+        />
+        <WorkEntry
+          years="2022–23"
+          title="Head of Engineering (International)"
+          company="Form3"
+          companyUrl="https://form3.tech"
+          description="Launched Form3's SWIFT offering with Goldman Sachs, enabling cross-border payments in 124 currencies."
+        />
+        <WorkEntry
+          years="2021–22"
+          title="Lead Engineer"
+          company="Form3"
+          companyUrl="https://form3.tech"
+          description="Delivered Mastercard's PayPort+, shaping the future of UK Faster Payments."
+        />
+        <WorkEntry
+          years="2019–21"
+          title="Senior Engineer"
+          company="Form3"
+          companyUrl="https://form3.tech"
+          description="Built the foundations of the Form3 payments platform."
+        />
+        <WorkEntry
+          years="2018–19"
+          title="Cloud Improvement Engineer"
+          company="Cloudreach"
+          companyUrl="https://www.cloudreach.com"
+          description="Guided enterprises through cloud transformations."
+          muted
+        />
+        <WorkEntry
+          years="2014–18"
+          title="Software Engineer"
+          company="Approov"
+          companyUrl="https://approov.io"
+          description="Developed and commercialised a mobile runtime protection (RASP) platform."
+          muted
+        />
+        <WorkEntry
+          years="2013–14"
+          title="Software Test Engineer"
+          company="Approov"
+          companyUrl="https://approov.io"
+          description="Industrial placement year, contributing to testing and early development of performance engineering tools."
+          muted
+        />
+      </section>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="Privacy Policy — Brendan Devenney"
+  description="Privacy policy for devenney.io — no tracking, no analytics, one essential cookie."
+  canonicalPath="/privacy"
+>
+  <Nav />
+
+  <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 2.5rem 1.5rem 0;">
+    <h1 style="color: var(--text-1); font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 700; line-height: 1.25; margin: 0 0 1.5rem;">Privacy Policy</h1>
+    <p style="margin-bottom: 1.75rem;">
+      <a href="/" style="font-size: 0.75rem; color: var(--text-muted);">← home</a>
+    </p>
+
+    <article class="prose">
+      <p>This website does not track users, collect personal data, or use third-party analytics.</p>
+
+      <h2>Cookies</h2>
+      <p>One essential cookie stores your light/dark mode preference. It holds only the string <code>light</code> or <code>dark</code> — no personal information — and persists until you clear it via your browser settings.</p>
+
+      <h2>No tracking</h2>
+      <ul>
+        <li>No Google Analytics or third-party analytics.</li>
+        <li>No advertising trackers or third-party scripts.</li>
+        <li>No IP logging or fingerprinting.</li>
+      </ul>
+
+      <h2>Your choices</h2>
+      <p>No personal data is collected, so there are no forms, accounts, or opt-out requirements. Delete the theme cookie at any time through your browser settings.</p>
+
+      <h2>Contact</h2>
+      <p>Questions? <a href="mailto:webmaster@devenney.io">webmaster@devenney.io</a></p>
+    </article>
+  </main>
+
+  <Footer />
+</Base>
