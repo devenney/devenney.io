@@ -44,6 +44,12 @@ jobs:
           npm install -g @lhci/cli
           lhci autorun --config=.lighthouserc.json
 
+      - name: Serve dist for link check
+        run: npx --yes serve dist -l 4321 &
+
+      - name: Wait for server
+        run: npx --yes wait-on http://localhost:4321 --timeout 15000
+
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
@@ -51,7 +57,5 @@ jobs:
             --verbose
             --no-progress
             --exclude 'linkedin\.com'
-            --exclude '^/'
-            --exclude '^mailto:'
-            './dist/**/*.html'
+            http://localhost:4321/
           fail: true
