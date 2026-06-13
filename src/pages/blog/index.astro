@@ -25,7 +25,7 @@ function formatDate(dateStr: string): string {
   <Nav activePage="blog" />
 
   <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 2.5rem 1.5rem 0;">
-    <p style="color: var(--text-subtle); font-size: 0.6rem; letter-spacing: 0.12em; margin-bottom: 1.5rem;">
+    <p style="color: var(--text-subtle); font-size: 0.75rem; letter-spacing: 0.12em; margin-bottom: 1.5rem;">
       WRITING
     </p>
 
@@ -41,11 +41,11 @@ function formatDate(dateStr: string): string {
                 {post.data.title}
               </span>
               {post.data.description && (
-                <span style="font-size: 0.68rem; color: var(--text-muted); display: block; margin-top: 0.2rem;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.2rem;">
                   {post.data.description}
                 </span>
               )}
-              <span style="font-size: 0.65rem; color: var(--text-subtle); display: block; margin-top: 0.2rem;">
+              <span style="font-size: 0.75rem; color: var(--text-subtle); display: block; margin-top: 0.2rem;">
                 {formatDate(post.data.date)}
               </span>
             </span>
@@ -55,7 +55,7 @@ function formatDate(dateStr: string): string {
       ))}
     </ul>
 
-    <p style="margin-top: 1.5rem; font-size: 0.68rem;">
+    <p style="margin-top: 1.5rem; font-size: 0.75rem;">
       <a href="/rss.xml" style="color: var(--text-muted);">↗ RSS feed</a>
     </p>
   </main>
