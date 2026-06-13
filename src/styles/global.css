@@ -9,8 +9,8 @@
   --text-1:      #f5f5f5;
   --text-2:      #cccccc;
   --text-3:      #aaaaaa;
-  --text-muted:  #666666;
-  --text-subtle: #555555;
+  --text-muted:  #8a8a8a;  /* 5.63:1 on dark bg — was #666666 (3.38:1, failed AA) */
+  --text-subtle: #7c7c7c;  /* 4.65:1 on dark bg — was #555555 (2.61:1, failed AA) */
   --accent:      #EC5578;
   --accent-h:    #EF6C8A;
   --font-mono:   'Geist Mono Variable', 'Courier New', monospace;
@@ -26,8 +26,10 @@
   --text-1:      #0d0d0d;
   --text-2:      #222222;
   --text-3:      #444444;
-  --text-muted:  #666666;
-  --text-subtle: #888888;
+  --text-muted:  #595959;  /* 6.42:1 on light bg — root changed to #8a8a8a (fails on light) */
+  --text-subtle: #636363;  /* 5.51:1 on light bg — was #888888 (3.25:1, failed AA) */
+  --accent:      #c42d5a;  /* 4.97:1 on light bg — was #EC5578 (3.14:1, failed AA) */
+  --accent-h:    #b52050;  /* 5.86:1 on light bg — was #EF6C8A (2.57:1, failed AA) */
 }
 
 /* ── Base styles ───────────────────────────────── */
