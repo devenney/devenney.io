@@ -23,7 +23,7 @@ const { years, title, company, companyUrl, description, muted = false } = Astro.
         href={companyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        style={`font-size: ${muted ? '0.75rem' : '0.75rem'}; color: var(--text-subtle); margin-left: 0.3rem;`}
+        style={`font-size: ${muted ? '0.75rem' : '0.75rem'}; color: var(--text-subtle); margin-left: 0.3rem; text-decoration: underline; text-underline-offset: 2px;`}
       >
         &middot; {company}
       </a>

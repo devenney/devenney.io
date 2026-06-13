@@ -42,7 +42,7 @@ jobs:
       - name: Lighthouse CI
         run: |
           npm install -g @lhci/cli
-          lhci autorun
+          lhci autorun --config=.lighthouserc.mjs
 
       - name: Check links
         uses: lycheeverse/lychee-action@v2

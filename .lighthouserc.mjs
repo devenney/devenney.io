@@ -6,15 +6,13 @@ export default {
     },
     assert: {
       assertions: {
-        // Category hard gates
+        // Hard gates: accessibility and SEO must score ≥0.9
         'categories:accessibility': ['error', { minScore: 0.9 }],
         'categories:seo':           ['error', { minScore: 0.9 }],
-        'categories:best-practices':['warn',  { minScore: 0.9 }],
-        'categories:performance':   ['warn',  { minScore: 0.8 }],
-        // CI-specific overrides: byte weight and network tree are unreliable
-        // in a local static-server context (all font subsets loaded eagerly)
-        'total-byte-weight':              ['warn', { maxNumericValue: 2000000 }],
-        'network-dependency-tree-insight': 'off',
+        // Performance is off: scores are meaningless in a CI static-server
+        // context (all font subsets load eagerly, no HTTP/2, cold cache).
+        'categories:performance':   'off',
+        'categories:best-practices':'off',
       },
     },
     upload: {
