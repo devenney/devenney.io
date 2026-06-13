@@ -20,7 +20,7 @@ function formatDate(dateStr: string): string {
 <Base
   title="Writing — Brendan Devenney"
   description="Writing by Brendan Devenney on software engineering, leadership, and more."
-  canonicalPath="/blog"
+  canonicalPath="/blog/"
 >
   <Nav activePage="blog" />
 
@@ -33,7 +33,7 @@ function formatDate(dateStr: string): string {
       {posts.map((post) => (
         <li style="border-bottom: 1px solid var(--border);">
           <a
-            href={`/blog/${post.slug}`}
+            href={`/blog/${post.slug}/`}
             style="display: flex; justify-content: space-between; align-items: baseline; padding: 0.9rem 0; text-decoration: none; color: inherit;"
           >
             <span>
