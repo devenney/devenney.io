@@ -41,7 +41,7 @@ var SP = {
     shoot0:    [38,  78, 32, 25,   0],
     shoot1:    [71,  78, 32, 25,   0],
     shoot2:    [104, 78, 32, 25,   0],
-    shoot3:    [141, 78, 32, 25,   0],
+    shoot3:    [141, 70, 32, 33, -24],  // sy=70: full band incl. raised arms
     shootJump: [283, 70, 32, 33, -24],  // sy=70: full band incl. raised arms
 };
 
