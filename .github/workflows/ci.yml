@@ -50,6 +50,7 @@ jobs:
           args: >-
             --verbose
             --no-progress
+            --base ./dist
             --exclude 'linkedin\.com'
             './dist/**/*.html'
           fail: true
