@@ -50,10 +50,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
       <a href="/blog" style="font-size: 0.68rem; color: var(--text-muted);">← back to writing</a>
     </p>
 
-    <article
-      style="font-family: var(--font-serif); color: var(--text-2); font-size: 1rem; line-height: 1.85;"
-      class="prose"
-    >
+    <article class="prose">
       <slot />
     </article>
   </main>
@@ -61,56 +58,3 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
   <Footer />
 </Base>
 
-<style is:global>
-  article.prose h2,
-  article.prose h3 {
-    font-family: var(--font-mono);
-    color: var(--accent);
-    margin: 2rem 0 0.75rem;
-  }
-  article.prose h2 { font-size: 1.15rem; }
-  article.prose h3 { font-size: 1rem; }
-  article.prose p { margin-bottom: 1.25rem; }
-  article.prose a { color: var(--accent); }
-  article.prose a:hover { color: var(--accent-h); }
-  article.prose code {
-    font-family: var(--font-mono);
-    font-size: 0.875em;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 0.1em 0.35em;
-    border-radius: 3px;
-    color: var(--text-1);
-  }
-  article.prose pre {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1rem;
-    overflow-x: auto;
-    margin-bottom: 1.25rem;
-  }
-  article.prose pre code {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 0.875rem;
-  }
-  article.prose blockquote {
-    border-left: 2px solid var(--accent);
-    padding-left: 1rem;
-    color: var(--text-muted);
-    margin: 1.5rem 0;
-  }
-  article.prose ul,
-  article.prose ol {
-    padding-left: 1.5rem;
-    margin-bottom: 1.25rem;
-  }
-  article.prose li { margin-bottom: 0.4rem; }
-  article.prose hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 2rem 0;
-  }
-</style>

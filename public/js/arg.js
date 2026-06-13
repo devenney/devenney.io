@@ -29,17 +29,20 @@ function crtSwitch() {
 // Assembled (run) sprites: sy=21, sh=24
 // Shooting sprites:        sy=78, sh=25
 //
+// [sx, sy, sw, sh, yOff]
+// yOff: canvas px offset so feet stay at ground regardless of sprite height
+// Jump frames use the full sprite band — extra rows sit above the body
 var SP = {
-    run0:      [55,  21, 24, 24],  // walk A
-    run1:      [87,  21, 32, 24],  // walk B (wider — mid-stride)
-    run2:      [120, 21, 24, 24],  // walk C
-    run3:      [145, 21, 24, 24],  // walk D
-    jump:      [174, 21, 32, 24],  // jump
-    shoot0:    [38,  78, 32, 25],  // shoot + walk A
-    shoot1:    [71,  78, 32, 25],  // shoot + walk B
-    shoot2:    [104, 78, 32, 25],  // shoot + walk C
-    shoot3:    [141, 78, 32, 25],  // shoot + walk D
-    shootJump: [283, 78, 32, 25],  // shoot + jump
+    run0:      [55,  21, 24, 24,   0],
+    run1:      [87,  21, 32, 24,   0],
+    run2:      [120, 21, 24, 24,   0],
+    run3:      [145, 21, 24, 24,   0],
+    jump:      [174, 13, 32, 32, -24],  // sy=13: full band incl. raised arms
+    shoot0:    [38,  78, 32, 25,   0],
+    shoot1:    [71,  78, 32, 25,   0],
+    shoot2:    [104, 78, 32, 25,   0],
+    shoot3:    [141, 78, 32, 25,   0],
+    shootJump: [283, 70, 32, 33, -24],  // sy=70: full band incl. raised arms
 };
 
 var RUN_CYCLE   = ['run0',   'run1',   'run2',   'run3'];
@@ -100,14 +103,15 @@ function launchRunner(sheet) {
     function drawSprite(key, x, y, dir) {
         var s = SP[key];
         var dw = s[2] * SC, dh = s[3] * SC;
+        var ry = y + (s[4] || 0);  // apply vertical offset
         ctx.save();
         // Sprites in the sheet face LEFT; flip horizontally for right-facing
         if (dir > 0) {
-            ctx.translate(x + dw, y);
+            ctx.translate(x + dw, ry);
             ctx.scale(-1, 1);
             ctx.drawImage(sheet, s[0], s[1], s[2], s[3], 0, 0, dw, dh);
         } else {
-            ctx.drawImage(sheet, s[0], s[1], s[2], s[3], x, y, dw, dh);
+            ctx.drawImage(sheet, s[0], s[1], s[2], s[3], x, ry, dw, dh);
         }
         ctx.restore();
     }
