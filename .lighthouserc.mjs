@@ -1,0 +1,19 @@
+export default {
+  ci: {
+    collect: {
+      staticDistDir: './dist',
+      numberOfRuns: 1,
+    },
+    assert: {
+      assertions: {
+        'categories:accessibility': ['error', { minScore: 0.9 }],
+        'categories:seo':           ['error', { minScore: 0.9 }],
+        'categories:best-practices':['warn',  { minScore: 0.9 }],
+        'categories:performance':   ['warn',  { minScore: 0.8 }],
+      },
+    },
+    upload: {
+      target: 'temporary-public-storage',
+    },
+  },
+};
