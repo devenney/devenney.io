@@ -1,7 +1,7 @@
 'use strict';
 
 var theFuture = 'Geological Unmanned Terraforming System';
-var audio = new Audio('/assets/audio/megaman-royaltyfree.mp3');
+var audio = new Audio('/assets/audio/megaman.mp3');
 audio.volume = 0.1;
 audio.loop = true;
 
@@ -52,7 +52,7 @@ var SC = 3;  // scale: 1 sprite pixel → 3×3 canvas pixels
 function startMegamanRunner() {
     var sheet = new Image();
     sheet.onload = function () { launchRunner(sheet); };
-    sheet.src = '/assets/images/mm-sprites.png';
+    sheet.src = '/assets/images/megaman-sprites.png';
 }
 
 function launchRunner(sheet) {

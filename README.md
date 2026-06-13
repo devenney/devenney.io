@@ -48,3 +48,23 @@ author: Brendan Devenney
 ```
 
 File names: `YYYY-MM-DD-short-description.md`.
+
+## Credits
+
+### Sprite sheet
+
+**Mega Man (NES)** — ripped by [MisterMike](https://www.spriters-resource.com/profile/MisterMike/) and hosted on [The Spriters Resource](https://www.spriters-resource.com). Used under The Spriters Resource's standard non-commercial fan-use terms.
+
+### Music
+
+**"No Copyright Music Mega Man opening Theme"** — [Blinding Beats](https://www.youtube.com/watch?v=VtNx8nIrUL4) (YouTube: @blindingbeats3299, 2020). Published as no-copyright/royalty-free music.
+
+### Libraries and tooling
+
+| Library | Licence |
+|---|---|
+| [Astro](https://astro.build) | MIT |
+| [Tailwind CSS](https://tailwindcss.com) | MIT |
+| [astro-icon](https://github.com/natemoo-re/astro-icon) | MIT |
+| [Font Awesome 6](https://fontawesome.com) (icons via Iconify) | CC BY 4.0 (icons), SIL OFL (fonts) |
+| [Geist Mono](https://vercel.com/font) | SIL OFL |
