@@ -2,11 +2,11 @@
 
 The public website code for https://devenney.io.
 
-Built with [Astro 5](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and deployed via [Cloudflare Pages](https://pages.cloudflare.com).
+Built with [Astro](https://astro.build), [Tailwind](https://tailwindcss.com), and deployed via [Cloudflare Pages](https://pages.cloudflare.com).
 
 ## Setup
 
-Requires Node 20+.
+Requires Node 22+.
 
 ```bash
 npm install
