@@ -111,6 +111,6 @@ One category of problem removed: I no longer ship broken links without noticing.
 
 The full flow, from writing to live: open a PR, CI runs lint and type check and Lighthouse and Lychee, Cloudflare Pages builds a preview, I check it looks right, I merge. Cloudflare deploys. GitHub Actions tags the release. That is it.
 
-Every step in this stack was chosen because it removed something from my mental overhead. Personal time is finite. I would rather spend mine watching the football.
+Every step in this stack was chosen because it removed something from my mental overhead. Personal time is finite. I would rather spend mine watching Scotland win the world cup.
 
 The source is [on GitHub](https://github.com/devenney/devenney.io).
