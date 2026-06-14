@@ -239,6 +239,23 @@ article.prose hr {
   border-top: 1px solid var(--border);
   margin: 2rem 0;
 }
+article.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+article.prose figure {
+  margin: 1.5rem 0;
+}
+article.prose figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  margin-top: 0.5rem;
+  text-align: center;
+}
 
 iframe.fullscreen {
   position: fixed;
