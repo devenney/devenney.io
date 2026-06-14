@@ -47,12 +47,11 @@ Build → S3 sync → CloudFront invalidate → check DNS → hope
 
 Three AWS services, IAM policies that needed to be exactly right, and a mental overhead that meant I avoided shipping unless I had a good reason.
 
-[Cloudflare Pages](https://pages.cloudflare.com) is configured with four fields:
+[Cloudflare Pages](https://pages.cloudflare.com) is configured with two fields:
 
 ```
 Build command:  npm run build
 Output dir:     dist
-NODE_VERSION:   22
 ```
 
 Then you push to main.
