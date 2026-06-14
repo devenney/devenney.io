@@ -54,13 +54,7 @@ Build command:  npm run build
 Output dir:     dist
 ```
 
-Then you push to main.
-
-```
-git push origin main
-```
-
-Done. Cloudflare handles the CDN, SSL, the www redirect, the HTTP upgrade, and pull request preview deployments. None of it needed any further configuration.
+That is the entire configuration. Every pull request gets a preview deployment automatically, so before merging anything I can click a URL and check it looks right. When I merge, CI has already confirmed there are no broken links and accessibility has not regressed. Cloudflare deploys the result. GitHub Actions tags the release. I do nothing else.
 
 I have been running things on AWS for years and I know how to navigate it. But there is a real difference between infrastructure you can use and infrastructure that stays out of your way. One category of problem removed: I no longer have to think about deployment.
 
@@ -115,9 +109,7 @@ One category of problem removed: I no longer ship broken links without noticing.
 
 ---
 
-The full CI pipeline: lint, type check, build, Lighthouse, link check. Every push to main runs the lot. If anything fails, nothing ships.
-
-The result is a site I am happy with, a deployment I do not think about, and quality checks I do not have to remember to run. The whole thing costs nothing.
+The full flow, from writing to live: open a PR, CI runs lint and type check and Lighthouse and Lychee, Cloudflare Pages builds a preview, I check it looks right, I merge. Cloudflare deploys. GitHub Actions tags the release. That is it.
 
 Every step in this stack was chosen because it removed something from my mental overhead. Personal time is finite. I would rather spend mine watching the football.
 
