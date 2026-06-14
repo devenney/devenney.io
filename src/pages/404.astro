@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="404 — Brendan Devenney"
+  description="Page not found."
+>
+  <Nav />
+
+  <main id="main" style="max-width: var(--width-prose); margin: 0 auto; padding: 4rem 1.5rem; text-align: center;">
+    <p style="font-size: 0.75rem; color: var(--text-subtle); letter-spacing: 0.12em; margin-bottom: 1rem;">
+      ERROR
+    </p>
+    <h1 style="font-size: 3rem; font-weight: 700; color: var(--accent); margin: 0 0 1rem;">404</h1>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;">
+      Nothing here.
+    </p>
+    <a href="/" style="font-size: 0.82rem; color: var(--accent);">← go home</a>
+  </main>
+
+  <Footer />
+</Base>
