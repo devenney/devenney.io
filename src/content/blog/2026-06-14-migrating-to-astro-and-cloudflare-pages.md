@@ -18,7 +18,7 @@ The reason I want to write about this is not the AI angle. It is the stack. Each
 
 [Astro](https://astro.build) is a static site framework with a simple idea: build once, serve flat files, no runtime. For a personal site it is the right default. Content collections give you typed and validated blog posts without a CMS. The island architecture means interactive pieces do not pull in JavaScript you do not need.
 
-The content schema for this blog is about as simple as it gets:
+The previous stack was webpack and Handlebars. Getting a blog post onto the page required a build pipeline, a template, and enough manual wiring that I avoided touching it. The content schema for this blog is about as simple as it gets:
 
 ```typescript
 const blog = defineCollection({
@@ -27,12 +27,11 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     date: z.string(),
-    author: z.string().default('Brendan Devenney'),
   }),
 });
 ```
 
-Migrating from Astro 5 to 6 was about forty minutes of work: move a config file, update a handful of imports. The error messages told me exactly what to fix.
+Write a markdown file, push, done. No templates, no build configuration to maintain.
 
 One category of problem removed: I no longer have to think about the build system.
 
