@@ -23,7 +23,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
 <Base
   title={`${title} — Brendan Devenney`}
   description={description}
-  canonicalPath={`/blog/${slug}`}
+  canonicalPath={`/blog/${slug}/`}
   ogType="article"
 >
   <!-- BlogPosting JSON-LD — injected into Base's named head slot -->
@@ -37,7 +37,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
       "name": author,
       "url": "https://devenney.io"
     },
-    "url": `https://devenney.io/blog/${slug}`,
+    "url": `https://devenney.io/blog/${slug}/`,
     "description": description ?? ''
   })} slot="head" />
 
