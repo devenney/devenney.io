@@ -1,9 +1,7 @@
 'use strict';
 
 var theFuture = 'Geological Unmanned Terraforming System';
-var audio = new Audio('/assets/audio/megaman.mp3');
-audio.volume = 0.1;
-audio.loop = true;
+var audio = null;
 
 var argEnabled = false;
 
@@ -13,6 +11,11 @@ function initARG() {
         if (sel && sel.toString() === theFuture && !argEnabled) {
             argEnabled = true;
             crtSwitch();
+            if (!audio) {
+                audio = new Audio('/assets/audio/megaman.ogg');
+                audio.volume = 0.1;
+                audio.loop = true;
+            }
             audio.play();
             startMegamanRunner();
         }

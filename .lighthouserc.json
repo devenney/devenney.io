@@ -1,7 +1,14 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./dist",
+      "startServerCommand": "npx serve dist -l 4322",
+      "startServerReadyTimeout": 15000,
+      "url": [
+        "http://localhost:4322/",
+        "http://localhost:4322/blog/",
+        "http://localhost:4322/blog/2026-06-14-migrating-to-astro-and-cloudflare-pages/",
+        "http://localhost:4322/privacy/"
+      ],
       "numberOfRuns": 1
     },
     "assert": {
