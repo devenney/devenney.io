@@ -6,17 +6,18 @@ Previously Head of Engineering (European Payments and International) at Form3,
 delivering SEPA Instant, Credit Transfer, Direct Debit, and SWIFT with Goldman Sachs.
 
 ## Links
-- Home: https://devenney.io
-- Blog: https://devenney.io/blog/
-- CV: https://github.com/devenney/cv/releases/latest
-- GitHub: https://github.com/devenney
-- LinkedIn: https://uk.linkedin.com/in/brendan-devenney
-- RSS: https://devenney.io/rss.xml
+- [Home](https://devenney.io)
+- [Blog](https://devenney.io/blog/)
+- [CV](https://github.com/devenney/cv/releases/latest)
+- [GitHub](https://github.com/devenney)
+- [LinkedIn](https://uk.linkedin.com/in/brendan-devenney)
+- [RSS](https://devenney.io/rss.xml)
 
 ## Writing
-- A hundred days: https://devenney.io/blog/2025-10-26-hundred-days/
-- On mental health as a manager: https://devenney.io/blog/2022-10-25-on-mental-health-as-a-manager/
-- A thousand days: https://devenney.io/blog/2022-02-21-thousand-days/
+- [Rebuilding devenney.io with Claude and Cloudflare Pages](https://devenney.io/blog/2026-06-14-migrating-to-astro-and-cloudflare-pages/)
+- [A hundred days](https://devenney.io/blog/2025-10-26-hundred-days/)
+- [On mental health as a manager](https://devenney.io/blog/2022-10-25-on-mental-health-as-a-manager/)
+- [A thousand days](https://devenney.io/blog/2022-02-21-thousand-days/)
 
 ## Skills and interests
 Go, cloud infrastructure, mobile security, payments, software engineering leadership,
