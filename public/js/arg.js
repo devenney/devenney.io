@@ -12,7 +12,11 @@ function initARG() {
             argEnabled = true;
             crtSwitch();
             if (!audio) {
-                audio = new Audio('/assets/audio/megaman.ogg');
+                var probe = document.createElement('audio');
+                var src = probe.canPlayType('audio/ogg; codecs=opus') !== ''
+                    ? '/assets/audio/megaman.ogg'
+                    : '/assets/audio/megaman.m4a';
+                audio = new Audio(src);
                 audio.volume = 0.1;
                 audio.loop = true;
             }
