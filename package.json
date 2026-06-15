@@ -22,6 +22,8 @@
     "astro-icon": "^1.1.5",
     "eslint": "^10.5.0",
     "eslint-plugin-astro": "^1.7.0",
+    "markdown-it": "^14.2.0",
+    "sanitize-html": "^2.17.5",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.0",
     "typescript-eslint": "^8.61.0"
@@ -38,5 +40,9 @@
     "esbuild@0.28.1": true,
     "fsevents@2.3.3": true,
     "sharp@0.34.5": true
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/sanitize-html": "^2.16.1"
   }
 }
