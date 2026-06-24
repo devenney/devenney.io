@@ -18,6 +18,7 @@ const { years, title, company, companyUrl, description, muted = false } = Astro.
     <span style={`font-size: ${muted ? '0.75rem' : '0.78rem'}; color: ${muted ? 'var(--text-muted)' : 'var(--text-3)'};`}>
       {title}
     </span>
+    <span style="font-size: 0.75rem; color: var(--text-subtle); margin-left: 0.3rem;">&middot;</span>
     {companyUrl ? (
       <a
         href={companyUrl}
@@ -25,11 +26,11 @@ const { years, title, company, companyUrl, description, muted = false } = Astro.
         rel="noopener noreferrer"
         style={`font-size: ${muted ? '0.75rem' : '0.75rem'}; color: var(--text-subtle); margin-left: 0.3rem; text-decoration: underline; text-underline-offset: 2px;`}
       >
-        &middot; {company}
+        {company}
       </a>
     ) : (
       <span style={`font-size: ${muted ? '0.75rem' : '0.75rem'}; color: var(--text-subtle); margin-left: 0.3rem;`}>
-        &middot; {company}
+        {company}
       </span>
     )}
     {description && (
